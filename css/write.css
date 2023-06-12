@@ -1,0 +1,24 @@
+.container{
+    border:1px solid black;
+    overflow:hidden;
+    text-align:center;
+    width:600px;
+    margin:0 auto;
+}
+
+.title a, .writer a, .content a{
+    font-size:20px;
+    font-weight:bold;
+}
+.title input, .writer input{
+    width:300px;
+    height:20px;
+}
+.submit, button{
+    width:100px;
+    font-weight:bold;
+    float:left;
+    margin-left:150px;
+    margin-top:20px;
+    margin-bottom:20px;
+}
