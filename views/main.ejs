@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="http://localhost:3000/main.css">
+    <title>Title</title>
+</head>
+<body>
+    <div class="container" id="nav">
+        <nav>
+            <div class="logo">
+                <div><a href="/" class="home">LOGO</a></div>
+            </div>
+            <div class="nav">
+                <a href="/"><span class="li">HOME</span></a>
+                <a href="#"><span class="li">HOME</span></a>
+                <a href="#"><span class="li">HOME</span></a>
+                <a href="#"><span class="li">HOME</span></a>
+            </div>
+        </nav>
+        <hr class="navline">
+    </div>
+
+    <div class="container" id="section">
+        <div class="login">
+            <p>로그인</p>
+            <form method="" action="">
+                <input type="text" placeholder="id">
+                <input type="password" placeholder="password">
+                <input type="submit" value="로그인">
+            </form>
+        </div>
+        <div class="test">
+
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="left">
+            <p>Rank</p>
+            <hr>
+        </div>              
+        <div class="right">
+            <span class="board">게시판</span>
+            <a href="board" class="plus"><span>+</span></a>
+            <hr>
+            <div class="recent">
+                <ul>                 
+                    <% for(var i = 0;i < 5;i++) { %>
+                        <li><a href="#"><%= rows[i].title %></a></li>          
+                    <% } %>            
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="footer">
+
+        </div>
+    </div>
+</body>
+</html>

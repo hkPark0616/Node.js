@@ -1,6 +1,10 @@
+body{
+    margin: 0;
+}
+
 .container{
     width: 100%;
-    border:1px solid black;
+    /*border:1px solid black;*/
     overflow: hidden;
     margin:0 auto;
     margin-bottom:10px;
@@ -11,7 +15,7 @@
     font-weight:bold;
     height:40px;
     width:100px;
-
+    margin-top: 10px;
 }
 .home{
     text-decoration: none;
@@ -22,13 +26,27 @@
     top:8px;
     position:relative;
 }
+#nav{
+    position: fixed;
+    background-color: aliceblue;
+    z-index: 1;
+}
 
+#section{
+    position: relative;
+    top: 50px;
+}
 .nav{
-  
     width:500px;
     float:right;
     height:40px;
     margin-right:20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.navline{
+    width: 100%;
+    margin: 0;
 
 }
 .nav > a{
@@ -44,7 +62,7 @@
     border:1px solid black;
     width:25%;
     margin:20px;
-    height:200px;
+    height:300px;
     float:left;
     text-align:center;
 }
@@ -77,7 +95,7 @@
     border:1px solid black;
     width:67%;
     margin:20px;
-    height:200px;
+    height:300px;
     float:right;
 }
 
@@ -87,6 +105,7 @@
     margin:20px;
     height:400px;
     border:1px solid black;
+    margin-top: 40px;
 }
 
 .right{
@@ -95,6 +114,7 @@
     margin:20px;
     height:400px;
     border:1px solid black;
+    margin-top: 40px;
 }
 
 .board{
@@ -124,8 +144,32 @@
     margin:0px 30px 40px 30px;
 }
 .right hr{
-    margin:50px 30px 40px 30px;
+    margin:50px 30px 20px 30px;
 }
 .footer{
     height:200px;
+    width: 100%;
+    background-color: aliceblue;
+    
+}
+
+.recent{
+    border: 1px solid lightgray;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+.recent ul li{
+    list-style: none;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-decoration: none;
+    color: black;
+
+}
+
+.recent a{
+    color: black;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
 }
