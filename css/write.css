@@ -14,7 +14,15 @@
     width:300px;
     height:20px;
 }
-.submit, button{
+.submit{
+    width:100px;
+    font-weight:bold;
+    float:left;
+    margin-left:150px;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+#close{
     width:100px;
     font-weight:bold;
     float:left;

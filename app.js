@@ -1,13 +1,16 @@
 const express = require("express");
 const router = express.Router();
 const app = express();
-const port = 3001;
+const port = 3000;
 const db = require('./db');
 
 app.set("view engine", "ejs")
 const path = require('path'); 
 app.set('views', path.join(__dirname, 'views'));
 
+const mysql = require('mysql2');
+
+app.use(express.urlencoded({extended: false}));
 /*app.get('/', (req, res) => {
   res.sendFile(__dirname + '/views/main.html');
 });*/
@@ -38,4 +41,14 @@ app.get('/board', function(req, res, next) {
               
 app.get('/write', (req, res) => {
   res.sendFile(__dirname + '/views/write.html');
-});                                                                                                                                          
+});       
+
+app.use('/insert', function(req, res, next){
+  let title = req.body.title;
+  let name = req.body.name;
+  let content = req.body.content;
+
+  db.insertMemo(content, title, name);
+  
+  res.redirect('board');
+});

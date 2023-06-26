@@ -9,12 +9,17 @@ const connection = mysql.createConnection({
 });
 
 function getAllMemos(callback){
-    connection.query('SELECT * FROM board;', (err, rows, fields) => {
+    connection.query('SELECT * FROM board ORDER BY date DESC;', (err, rows, fields) => {
         if(err) throw err;
         callback(rows);
     });
 }
 
+function insertMemo(content, title, name){
+    connection.query(`INSERT INTO board (content, date, name, title) VALUES ('${content}',NOW(),'${name}', '${title}')`);
+}
+
 module.exports = {
-    getAllMemos
+    getAllMemos,
+    insertMemo
 }
