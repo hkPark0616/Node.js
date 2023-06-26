@@ -19,6 +19,7 @@ app.get('/', function(req, res, next) {
 
 app.listen(port, () => {
   console.log("서버가 실행됩니다.");
+  console.log("http://localhost:3001/");
 });
 
 app.use('/', express.static("css"));
