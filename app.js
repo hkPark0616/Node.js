@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const app = express();
-const port = 3000;
+const port = 3001;
 const db = require('./db');
 
 app.set("view engine", "ejs")
