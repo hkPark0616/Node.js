@@ -26,6 +26,7 @@ app.listen(port, () => {
 });
 
 app.use('/', express.static("css"));
+app.use('/', express.static("images"));
 
 
 /*router.get('/board', (req, res) => {

@@ -6,7 +6,7 @@
     <title>Title</title>
 </head>
 <body>
-    <div class="container" id="nav">
+    <div class="containernav" id="nav">
         <nav>
             <div class="logo">
                 <div><a href="/" class="home">LOGO</a></div>
@@ -34,7 +34,9 @@
             </div>
         </div>
         <div class="test">
-
+            <div class="image">
+                <img src="../background_img3.jpg">
+            </div>
         </div>
     </div>
 
@@ -51,19 +53,27 @@
             <a href="board" class="plus"><span>+</span></a>
             <hr>
             <div class="recent">
-                <ul>                 
+
                     <!-- <% for(var i = 0;i < rows.length;i++) { %>
                         <li><a href="#" value="<%= rows[i].num %>"><%= rows[i].title %></a></li>          
                     <% } %>       -->
-                    <% rows.forEach((row, index)=>{ %>
-                        <li><a href="#" value="<%= row.num %>"><%= row.title %></a></li> 
-                    <% }) %>      
-                </ul>
+
+                    <% if(rows.length === 0){ %>
+                        <p class="none">게시글이 없습니다.</p>
+                    <% } else { %>
+                        <ul>    
+                            <% rows.forEach((row, index)=>{ %>
+                                <li><a href="#" value="<%= row.num %>"><%= row.title %></a></li> 
+                            <% }) %>    
+                        </ul>
+                    <% } %>
+  
+                
             </div>
         </div>
 
     </div>
-    <div class="container">
+    <div class="containerfooter">
         <div class="footer">
 
         </div>

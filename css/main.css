@@ -1,17 +1,26 @@
 body{
     margin: 0;
-
+    background-color: rgb(240, 240, 227);
 }
 
 .container{
+    width: 1500px;
+    min-width: max-content;
+    /*border:1px solid black;*/
+    overflow: hidden;
+    margin:0 auto;
+    margin-bottom:10px;
+}
+.containernav, .containerfooter{
     width: 100%;
     min-width: max-content;
     /*border:1px solid black;*/
     overflow: hidden;
     margin:0 auto;
     margin-bottom:10px;
-    
 }
+
+
 .logo{
     float:left;
     margin-left: 20px;
@@ -22,7 +31,7 @@ body{
 }
 .home{
     text-decoration: none;
-    color: black;
+    color: white;
 }
 .logo > div{
     text-align:center;
@@ -31,7 +40,7 @@ body{
 }
 #nav{
     position: fixed;
-    background-color: aliceblue;
+    background-color: rgb(24, 24, 24);
     z-index: 1;
 }
 
@@ -50,10 +59,10 @@ body{
 .navline{
     width: 100%;
     margin: 0;
-
+    background: white;
 }
 .nav > a{
-   color:black;
+   color:white;
    font-weight:bold;
 }
 .li{
@@ -65,7 +74,7 @@ body{
     border:1px solid black;
     min-width:280px;
     margin:20px;
-    height:300px;
+    height:400px;
     float:left;
     position: relative;
 }
@@ -108,10 +117,19 @@ body{
     max-width:100%;
     min-width: 500px;
     margin:20px;
-    height:300px;
+    height:400px;
     overflow: hidden;
 }
+.image{
+    width:1150px;
+    height:390px;
+    margin: 5px auto;
+}
+.image img{
 
+    width:100%;
+    height:100%;
+}
 .left{
     min-width:280px;
     margin:20px;
@@ -165,10 +183,9 @@ body{
     margin:50px 30px 20px 30px;
 }
 .footer{
-    height:200px;
+    height:250px;
     width: 100%;
-    background-color: aliceblue;
-    
+    background-color: rgb(24, 24, 24);
 }
 
 .recent{
@@ -176,6 +193,7 @@ body{
     margin-left: 30px;
     margin-right: 30px;
     min-width: 80%;
+    height: 75%;
 }
 .recent ul li{
     list-style: none;
@@ -191,4 +209,12 @@ body{
     text-decoration: none;
     font-weight: 600;
     font-size: 18px;
+}
+
+.none{
+    font-size: 25px;
+    font-weight: bold;
+    position: relative;
+    margin-left: 40%;
+    margin-top: 11%;
 }
