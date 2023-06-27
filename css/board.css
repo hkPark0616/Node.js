@@ -11,12 +11,27 @@ table{
     text-align:center;
 
 }
-.writer{
-    width:100px;
+#writer{
+    width:fit-content;
 }
-.date{
-    width:100px;
+#date{
+    width:fit-content;
 }
-.title{
+#title{
     width:400px;
+}
+.none{
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    height: 500px;
+}
+
+.num, .name, .date{
+    text-align: center;
+    padding: 5px;
+}
+.title a{
+    text-decoration-line: none;
+    color: black;
 }

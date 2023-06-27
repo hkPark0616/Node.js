@@ -13,17 +13,26 @@
 
     <table border="1">
         <tr>
-            <th class="writer">작성자</th>
-            <th class="date">날짜</th>
-            <th class="title">제목</th>
+            <th id="num">번호</th>
+            <th id="writer">작성자</th>
+            <th id="date">날짜</th>
+            <th id="title">제목</th>
         </tr>
-        <% rows.forEach((row, index)=>{ %>
+        <% if(rows.length === 0){ %>
             <tr>
-                <td><%= row.name %></td>
-                <td><%= row.date %></td>
-                <td><%= row.title %></td>
+                <td colspan="3" class="none">게시글이 없습니다.</td>
             </tr>
-        <% }) %>
+        <% } else { %>
+            <% rows.forEach((row, index)=>{ %>
+                <tr>
+                    <td class="num"><%= row.num %></td>
+                    <td class="name"><%= row.name %></td>
+                    <td class="date"><%= row.date %></td>
+                    <td class="title"><a href="#"><%= row.title %></a></td>
+                </tr>
+            <% }) %>
+        <% } %>
+
     </table>
 </body>
 </html>
