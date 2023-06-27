@@ -52,9 +52,12 @@
             <hr>
             <div class="recent">
                 <ul>                 
-                    <% for(var i = 0;i < rows.length;i++) { %>
-                        <li><a href="#"><%= rows[i].title %></a></li>          
-                    <% } %>            
+                    <!-- <% for(var i = 0;i < rows.length;i++) { %>
+                        <li><a href="#" value="<%= rows[i].num %>"><%= rows[i].title %></a></li>          
+                    <% } %>       -->
+                    <% rows.forEach((row, index)=>{ %>
+                        <li><a href="#" value="<%= row.num %>"><%= row.title %></a></li> 
+                    <% }) %>      
                 </ul>
             </div>
         </div>
