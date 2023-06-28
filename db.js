@@ -19,7 +19,15 @@ function insertMemo(content, title, name){
     connection.query(`INSERT INTO board (content, date, name, title) VALUES ('${content}',NOW(),'${name}', '${title}')`);
 }
 
+function getMemo(title, value, callback){
+    connection.query(`SELECT num, title, name, date, content FROM board WHERE title = '${title}' && num = '${value}';`, (err, rows, fields) => {
+        if(err) throw err;
+        callback(rows);
+    });
+}
+
 module.exports = {
     getAllMemos,
-    insertMemo
+    insertMemo,
+    getMemo
 }

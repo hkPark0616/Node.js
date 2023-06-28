@@ -1,3 +1,8 @@
+// pm2 사용법
+// 시작 : pm2 start app.js ( + --watch 옵션 : 변동사항 있을 때 재시작)
+// 확인 : pm2 status
+// 종료 : pm2 delete [종료할 프로세스 id]
+
 const express = require("express");
 const router = express.Router();
 const app = express();
@@ -53,3 +58,13 @@ app.use('/insert', function(req, res, next){
   
   res.redirect('board');
 });
+
+app.get('/memo', (req, res) => {
+  let title = req.query.title;
+  let value = req.query.value;
+
+  db.getMemo(title, value, (rows) => {
+    res.render(__dirname + '/views/memo.ejs', {rows : rows});
+  });
+});     
+

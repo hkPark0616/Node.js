@@ -54,17 +54,19 @@
             <hr>
             <div class="recent">
 
-                    <!-- <% for(var i = 0;i < rows.length;i++) { %>
-                        <li><a href="#" value="<%= rows[i].num %>"><%= rows[i].title %></a></li>          
-                    <% } %>       -->
+
 
                     <% if(rows.length === 0){ %>
                         <p class="none">게시글이 없습니다.</p>
                     <% } else { %>
                         <ul>    
-                            <% rows.forEach((row, index)=>{ %>
+                            <!-- <% rows.forEach((row, index)=>{ %>
                                 <li><a href="#" value="<%= row.num %>"><%= row.title %></a></li> 
-                            <% }) %>    
+                            <% }) %>     -->
+                            <% for(var i = 0;i < rows.length;i++) { %>
+                                <li><a href="memo?title=<%= rows[i].title %>&value=<%= rows[i].num %>" value="<%= rows[i].num %>"><%= rows[i].title %></a></li>          
+                                <% if(i === 4) break; %>
+                            <% } %>      
                         </ul>
                     <% } %>
   

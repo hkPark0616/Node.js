@@ -1,3 +1,97 @@
+html, body{
+    margin: 0;
+    /* padding:0;
+    height:100%; */
+    background-color: rgb(240, 240, 227);
+}
+.containernav{
+    width: 100%;
+    min-width: max-content;
+    /*border:1px solid black;*/
+    overflow: hidden;
+    margin:0 auto;
+    margin-top: 0px;
+
+}
+.logo{
+    float:left;
+    margin-left: 20px;
+    font-weight:bold;
+    height:40px;
+    width:100px;
+    margin-top: 10px;
+}
+.home{
+    text-decoration: none;
+    color: white;
+}
+.logo > div{
+    text-align:center;
+    top:8px;
+    position:relative;
+}
+#nav{
+    position: fixed;
+    background-color: rgb(24, 24, 24);
+    z-index: 1;
+}
+.nav{
+    min-width:500px;
+    float:right;
+    height:40px;
+    margin-right:20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.navline{
+    width: 100%;
+    margin: 0;
+    background: white;
+    
+}
+.nav > a{
+   color:white;
+   font-weight:bold;
+}
+.li{
+    margin-left:60px;
+    top:8px;
+    position:relative;
+}
+.navline{
+    width: 100%;
+    margin: 0;
+    background: white;
+    
+}
+
+.containerfooter{
+    width: 100%;
+    min-width: max-content;
+    /*border:1px solid black;*/
+    overflow: hidden;
+    margin:0 auto;
+}
+
+.footer{
+    height:250px;
+    width: 100%;
+    background-color: rgb(24, 24, 24);
+    position: absolute;
+    bottom: 0;
+}
+
+.top-container{
+    position: relative;
+    top: 70px;
+    overflow: hidden;
+    margin:0 auto;
+    margin-bottom:80px;
+}
+.main-container{
+    margin:0 auto;
+    margin-bottom: 30px;
+}
 h1{
     text-align:center;
 }

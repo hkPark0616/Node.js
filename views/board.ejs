@@ -6,33 +6,57 @@
     <title>게시판</title>
 </head>
 <body>
-    <h1>게시판</h1>
-    <div class="link">
-        <a href="write"><span>글작성</span></a>
+    <div class="containernav" id="nav">
+        <nav>
+            <div class="logo">
+                <div><a href="/" class="home">LOGO</a></div>
+            </div>
+            <div class="nav">
+                <a href="/"><span class="li">HOME</span></a>
+                <a href="#"><span class="li">CONTENT</span></a>
+                <a href="#"><span class="li">HOME</span></a>
+                <a href="#"><span class="li">HOME</span></a>
+            </div>
+        </nav>
+        <hr class="navline">
     </div>
 
-    <table border="1">
-        <tr>
-            <th id="num">번호</th>
-            <th id="writer">작성자</th>
-            <th id="date">날짜</th>
-            <th id="title">제목</th>
-        </tr>
-        <% if(rows.length === 0){ %>
-            <tr>
-                <td colspan="3" class="none">게시글이 없습니다.</td>
-            </tr>
-        <% } else { %>
-            <% rows.forEach((row, index)=>{ %>
-                <tr>
-                    <td class="num"><%= row.num %></td>
-                    <td class="name"><%= row.name %></td>
-                    <td class="date"><%= row.date %></td>
-                    <td class="title"><a href="#" value="<%= row.num %>"><%= row.title %></a></td>
-                </tr>
-            <% }) %>
-        <% } %>
+    <div class="top-container">
+        <h1>게시판</h1>
+        <div class="link">
+            <a href="write"><span>글작성</span></a>
+        </div>
+    </div>
 
-    </table>
+    <div class="main-container">
+        <table border="1">
+            <tr>
+                <th id="num">번호</th>
+                <th id="writer">작성자</th>
+                <th id="date">날짜</th>
+                <th id="title">제목</th>
+            </tr>
+            <% if(rows.length === 0){ %>
+                <tr>
+                    <td colspan="3" class="none">게시글이 없습니다.</td>
+                </tr>
+            <% } else { %>
+                <% rows.forEach((row, index)=>{ %>
+                    <tr>
+                        <td class="num"><%= row.num %></td>
+                        <td class="name"><%= row.name %></td>
+                        <td class="date"><%= row.date %></td>
+                        <td class="title" ><a href="memo?title=<%= row.title %>&value=<%= row.num %>"><%= row.title %></a></td>
+                    </tr>
+                <% }) %>
+            <% } %>
+        </table>
+    </div>
+
+    <div class="containerfooter">
+        <div class="footer">
+
+        </div>
+    </div>
 </body>
 </html>
