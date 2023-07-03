@@ -141,20 +141,47 @@ table{
     font-size: 22px;
     font-weight: bold;
     text-decoration: none;
+    list-style: none;
+}
+.pager li{
+    float: left;
+    margin-right: 5px;
+}
+
+.next{
+    /* padding: 5px 10px 5px 10px; */
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.previous{
+    padding-right: 15px;
 }
 
 .previous a, .next a{
     text-decoration: none;
+    color: rgb(80, 80, 80);
+}
+
+.active{
+    /* padding: 5px 10px 5px 10px; */
+    width: 38px;
+    text-align: center;
 }
 
 .active a{
     text-decoration: none;
-    color: rgb(158, 158, 158);
-    margin: 5px;
+    color: rgb(80, 80, 80);
 }
 
+
+.now{
+    background-color: rgb(80, 80, 80);
+    width: 38px;
+    text-align: center;
+    border-radius: 3px;
+    /* padding: 5px 10px 5px 10px; */
+}
 .now a{
     text-decoration: none;
-    color: black;
-    margin: 5px;
+    color: white;
 }

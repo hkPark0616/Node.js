@@ -66,7 +66,7 @@
     </div>
 
     <div class="container">
-        <div class="pager">
+        <ul class="pager">
             <%  var curSet=pasing.curSet 
                 var endPage=pasing.endPage 
                 var startPage=pasing.startPage 
@@ -79,9 +79,9 @@
 
                 <% if(curSet> 1){ %>
 
-                    <span value=(startPage -1) class="previous">
-                        <a href='/board/<%= ( startPage - 1) %>'>이전페이지</a>
-                    </span>
+                    <li value=(startPage -1) class="previous">
+                        <a href='/board/<%= ( startPage - 1) %>'>&lt;</a>
+                    </li>
 
                     <% } %>
 
@@ -90,19 +90,19 @@
 
                             if(i == curPage){
                             %>
-                            <span  class='now' value=<%=i %> >
+                            <li class='now' value=<%=i %> >
                                 <a href='/board/<%= i %>'>
                                     <%= i %>
                                 </a>
-                            </span>
+                            </li>
 
                             <% }else{ %>
 
-                                <span class='active' value=<%=i %> >
+                                <li class='active' value=<%=i %> >
                                     <a href='/board/<%= i %>'>
                                         <%= i %>
                                     </a>
-                                </span>
+                                </li>
 
 
                                 <% } %>
@@ -110,12 +110,12 @@
                                     <% } %>
 
                                         <% if(curSet < totalSet){ %>
-                                            <span value=( endPage + 1) class="next">
-                                                <a href='/board/<%= ( endPage + 1) %>'>다음페이지</a>
-                                            </span>
+                                            <li value=( endPage + 1) class="next">
+                                                <a href='/board/<%= ( endPage + 1) %>'>&gt;</a>
+                                            </li>
                                             <% } %>
 
-        </div>
+        </ul>
     </div>
     <div class="containerfooter">
         <div class="footer">
