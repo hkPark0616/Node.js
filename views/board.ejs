@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="http://localhost:3001/board.css">
     <title>게시판</title>
 </head>
+
 <body>
     <div class="containernav" id="nav">
         <nav>
@@ -24,7 +26,7 @@
     <div class="top-container">
         <h1>게시판</h1>
         <div class="link">
-            <a href="write"><span>글작성</span></a>
+            <a href="/write"><span>글작성</span></a>
         </div>
     </div>
 
@@ -36,27 +38,90 @@
                 <th id="date">날짜</th>
                 <th id="title">제목</th>
             </tr>
-            <% if(rows.length === 0){ %>
+
+            <% if(data.length===0){ %>
                 <tr>
                     <td colspan="3" class="none">게시글이 없습니다.</td>
                 </tr>
-            <% } else { %>
-                <% rows.forEach((row, index)=>{ %>
-                    <tr>
-                        <td class="num"><%= row.num %></td>
-                        <td class="name"><%= row.name %></td>
-                        <td class="date"><%= row.date %></td>
-                        <td class="title" ><a href="memo?title=<%= row.title %>&value=<%= row.num %>"><%= row.title %></a></td>
-                    </tr>
-                <% }) %>
-            <% } %>
+
+                <% } else { %>
+                    <% data.forEach((row, index)=>{ %>
+                        <tr>
+                            <td class="num">
+                                <%= row.num %>
+                            </td>
+                            <td class="name">
+                                <%= row.name %>
+                            </td>
+                            <td class="date">
+                                <%= row.date %>
+                            </td>
+                            <td class="title"><a href="/memo?title=<%= row.title %>&value=<%= row.num %>">
+                                    <%= row.title %>
+                                </a></td>
+                        </tr>
+                        <% }) %>
+                            <% } %>
         </table>
     </div>
 
+    <div class="container">
+        <div class="pager">
+            <%  var curSet=pasing.curSet 
+                var endPage=pasing.endPage 
+                var startPage=pasing.startPage 
+                var totalSet=pasing.totalSet 
+                var totalPage=pasing.totalPage 
+                var page_list_size=pasing.page_list_size 
+                varpage_size=pasing.page_size 
+                var curPage=pasing.curPage 
+            %>
+
+                <% if(curSet> 1){ %>
+
+                    <span value=(startPage -1) class="previous">
+                        <a href='/board/<%= ( startPage - 1) %>'>이전페이지</a>
+                    </span>
+
+                    <% } %>
+
+
+                        <% for(var i=startPage; i <=endPage; i++){ if(i> totalPage){break;}
+
+                            if(i == curPage){
+                            %>
+                            <span  class='now' value=<%=i %> >
+                                <a href='/board/<%= i %>'>
+                                    <%= i %>
+                                </a>
+                            </span>
+
+                            <% }else{ %>
+
+                                <span class='active' value=<%=i %> >
+                                    <a href='/board/<%= i %>'>
+                                        <%= i %>
+                                    </a>
+                                </span>
+
+
+                                <% } %>
+
+                                    <% } %>
+
+                                        <% if(curSet < totalSet){ %>
+                                            <span value=( endPage + 1) class="next">
+                                                <a href='/board/<%= ( endPage + 1) %>'>다음페이지</a>
+                                            </span>
+                                            <% } %>
+
+        </div>
+    </div>
     <div class="containerfooter">
         <div class="footer">
 
         </div>
     </div>
 </body>
+
 </html>

@@ -11,7 +11,6 @@ html, body{
     overflow: hidden;
     margin:0 auto;
     margin-top: 0px;
-
 }
 .logo{
     float:left;
@@ -128,4 +127,34 @@ table{
 .title a{
     text-decoration-line: none;
     color: black;
+}
+
+.container{
+    width: max-content;
+    /*border:1px solid black;*/
+    margin:0 auto;
+    margin-bottom: 40px;
+
+}
+.pager{
+    margin: 0 auto;
+    font-size: 22px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.previous a, .next a{
+    text-decoration: none;
+}
+
+.active a{
+    text-decoration: none;
+    color: rgb(158, 158, 158);
+    margin: 5px;
+}
+
+.now a{
+    text-decoration: none;
+    color: black;
+    margin: 5px;
 }
