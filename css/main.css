@@ -29,6 +29,12 @@ html, body{
     margin:0 auto;
 }
 
+.footer{
+    height:250px;
+    width: 100%;
+    background-color: rgb(24, 24, 24);
+    margin-bottom: auto;
+}
 
 .logo{
     float:left;
@@ -191,13 +197,6 @@ html, body{
 }
 .right hr{
     margin:50px 30px 20px 30px;
-}
-.footer{
-    height:250px;
-    width: 100%;
-    background-color: rgb(24, 24, 24);
-    margin-bottom: auto;
-    
 }
 
 .recent{

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="http://localhost:3001/board.css">
-    <title>게시판</title>
+    <title>자유 게시판</title>
 </head>
 
 <body>
@@ -22,17 +22,19 @@
         </nav>
         <hr class="navline">
     </div>
+    <div class="container">
 
+    </div>
     <div class="top-container">
-        <h1>게시판</h1>
+        <h1>자유 게시판</h1>
         <div class="link">
-            <a href="/write"><span>글작성</span></a>
+            <a href="/write"><span>글 작성하기</span></a>
         </div>
     </div>
 
     <div class="main-container">
-        <table border="1">
-            <tr>
+        <table class="table">
+            <tr class="table-top">
                 <th id="num">번호</th>
                 <th id="writer">작성자</th>
                 <th id="date">날짜</th>
@@ -40,13 +42,13 @@
             </tr>
 
             <% if(data.length===0){ %>
-                <tr>
-                    <td colspan="3" class="none">게시글이 없습니다.</td>
+                <tr class="table-content">
+                    <td colspan="4" class="none">게시글이 없습니다.</td>
                 </tr>
 
                 <% } else { %>
                     <% data.forEach((row, index)=>{ %>
-                        <tr>
+                        <tr class="table-content">
                             <td class="num">
                                 <%= row.num %>
                             </td>

@@ -157,7 +157,7 @@ app.use('/insert', function(req, res, next){
 
   db.insertMemo(content, title, name);
   
-  res.redirect('main');
+  res.redirect('/main');
 });
 
 app.get('/memo', (req, res) => {
