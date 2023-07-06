@@ -62,7 +62,6 @@ html, body{
     width: 100%;
     margin: 0;
     background: white;
-    
 }
 
 .containerfooter{
@@ -82,7 +81,7 @@ html, body{
 }
 .main-container{
     margin:0 auto;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     overflow: hidden;
 }
 h1{

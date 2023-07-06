@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="http://localhost:3001/write.css">
+    <title>Title</title>
+</head>
+<body>
+    <div class="containernav" id="nav">
+        <nav>
+            <div class="logo">
+                <div><a href="/" class="home">LOGO</a></div>
+            </div>
+            <div class="nav">
+                <a href="/"><span class="li">HOME</span></a>
+                <a href="#"><span class="li">CONTENT</span></a>
+                <a href="#"><span class="li">HOME</span></a>
+                <a href="#"><span class="li">HOME</span></a>
+            </div>
+        </nav>
+        <hr class="navline">
+    </div>
+
+    <div class="container">
+
+    </div>
+    <div class="title-container">
+        
+    </div>
+
+    <div class="main-container">
+        <form method="POST" action="insert">
+            <table class="table">
+                <tr class="top">
+                    <th colspan="2">글 작성하기</th>
+                </tr>
+                <tr class="empty">
+
+                </tr>
+                <tr>
+                    <th class="title">글 제목</th>
+                    <td><input type="text" name="title" class="input-title"></td>
+                </tr>
+                <tr>
+                    <th class="name">작성자</th>
+                    <td><input type="text" name="name" class="input-name"></td>
+                </tr>
+                <tr>
+                    <th class="date">날짜</th>
+                    <td ><input type="text" class="input-date" value="<%= date %>" disabled></td>
+                </tr>
+                <tr>
+                    <th class="content">내용</th>
+                    <td><textarea class="input-content" rows="20" name = "content"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="empty-td"></td>
+                    <td class="button">
+                        <input type="submit" value="완료" class="submit">
+                        <input type="button" onclick="javascript:location.href='/main'" value="취소" id="close">
+                        
+                    </td>
+                    
+                </tr>
+                <tr class="empty">
+
+                </tr>
+                
+            </table>
+
+        </form>
+    </div>
+
+    <div class="container">
+
+    </div>
+
+    <div class="containerfooter">
+        <div class="footer">
+
+        </div>
+    </div>
+</body>
+</html>

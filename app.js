@@ -43,6 +43,7 @@ app.listen(port, () => {
 
 app.use('/', express.static("css"));
 app.use('/', express.static("images"));
+app.use('/', express.static("js"));
 
 
 /*router.get('/board', (req, res) => {
@@ -147,7 +148,12 @@ app.get("/main", function (req, res) {
 });
               
 app.get('/write', (req, res) => {
-  res.sendFile(__dirname + '/views/write.html');
+
+  let today = new Date();
+  today.setHours(today.getHours() + 9);
+  let date = today.toISOString().replace('T', ' ').substring(0, 10);
+
+  res.render(__dirname + '/views/write.ejs', {date});
 });       
 
 app.use('/insert', function(req, res, next){

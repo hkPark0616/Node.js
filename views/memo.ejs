@@ -2,15 +2,70 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="http://localhost:3001/memo.css">
   <title>Document</title>
 </head>
 <body>
-  <%= rows[0].num %><br>
-  <%= rows[0].title %><br>
-  <%= rows[0].date %><br>
-  <%= rows[0].name %><br>
-  <%= rows[0].content %><br>
+  <div class="containernav" id="nav">
+    <nav>
+        <div class="logo">
+            <div><a href="/" class="home">LOGO</a></div>
+        </div>
+        <div class="nav">
+            <a href="/"><span class="li">HOME</span></a>
+            <a href="#"><span class="li">CONTENT</span></a>
+            <a href="#"><span class="li">HOME</span></a>
+            <a href="#"><span class="li">HOME</span></a>
+        </div>
+    </nav>
+    <hr class="navline">
+  </div>
+
+  <div class="container">
+
+  </div>
+
+  <div class="main-container">
+    <div class="content">
+      <button onclick="history.back()" class="back"><img class="back-img" src="../back.png"><span>목록으로</span></button>
+      <table class="table">
+        <tr>
+          <td colspan="6" class="top">게시글</td>
+        </tr>
+        <tr>
+          <td class="num-title">글번호</td>
+          <td class="num"><%= rows[0].num %></td>
+          <td class="date-title">작성일</td>
+          <td class="date"><%= rows[0].date %></td>
+          <td class="name-title">작성자</td>
+          <td class="name"><%= rows[0].name %></td>
+        </tr>
+
+        <tr>
+          <td class="title-title">제목</td>
+          <td colspan="5" class="title"><%= rows[0].title %></td>
+        </tr>
+        <tr>
+          <td colspan="6" class="content-title">내용</td>
+        </tr>
+        <tr>
+          <td colspan="6" class="table-content"><%= rows[0].content %></td>
+        </tr>
+      </table>
+
+    </div>
+
+  </div>
+
+  <div class="container">
+
+  </div>
+
+  <div class="containerfooter">
+      <div class="footer">
+
+      </div>
+  </div>
   
 </body>
 </html>

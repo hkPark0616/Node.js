@@ -1,32 +1,191 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    /* padding:0;
+    height:100%; */
+    background-color: rgb(240, 240, 227);
+}
+
 .container{
-    border:1px solid black;
+    width: max-content;
+    /*border:1px solid black;*/
+    margin:0 auto;
+    height: 150px;
+}
+
+.title-container{
+    width: max-content;
+    /*border:1px solid black;*/
+    margin:0 auto;
+    height: 80px;
+}
+
+.main-container{
     overflow:hidden;
-    text-align:center;
-    width:600px;
+    width:100%;
     margin:0 auto;
 }
 
-.title a, .writer a, .content a{
-    font-size:20px;
-    font-weight:bold;
+.table{
+    border: 1px solid black;
+    margin: 0 auto;
+    width: 1000px;
+    border-collapse: collapse;
 }
-.title input, .writer input{
-    width:300px;
-    height:20px;
+
+.top{
+    background-color: rgb(24, 24, 24);
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.top th{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.empty{
+    height: 20px;
+}
+
+.input-title{
+    width: 95%;
+    font-size: 20px;
+    margin-left: 20px;
+}
+.input-name{
+    width: 95%;
+    font-size: 20px;
+    margin-left: 20px;
+}
+.input-date{
+    font-size: 20px;
+    margin-left: 20px;
+    border: 1px solid black;
+}
+.input-content{
+    width: 95%;
+    font-size: 18px;
+    margin-left: 20px;
+}
+
+.title, .name, .date, .content, .empty-td{
+    height: 50px;
+    width: 150px;
+    font-size: 20px;
+    padding: 0;
+    border-right: 1px solid rgb(187, 187, 187);
+}
+
+
+.containernav{
+    width: 100%;
+    min-width: max-content;
+    /*border:1px solid black;*/
+    overflow: hidden;
+    margin:0 auto;
+    margin-top: 0px;
+}
+.logo{
+    float:left;
+    margin-left: 20px;
+    font-weight:bold;
+    height:40px;
+    width:100px;
+    margin-top: 10px;
+}
+.home{
+    text-decoration: none;
+    color: white;
+}
+.logo > div{
+    text-align:center;
+    top:8px;
+    position:relative;
+}
+#nav{
+    position: fixed;
+    background-color: rgb(24, 24, 24);
+    z-index: 1;
+}
+.nav{
+    min-width:500px;
+    float:right;
+    height:40px;
+    margin-right:20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.navline{
+    width: 100%;
+    margin: 0;
+    background: white;
+    
+}
+.nav > a{
+   color:white;
+   font-weight:bold;
+}
+.li{
+    margin-left:60px;
+    top:8px;
+    position:relative;
+}
+.navline{
+    width: 100%;
+    margin: 0;
+    background: white;
+}
+
+.button{
+    height: 70px;
 }
 .submit{
-    width:100px;
-    font-weight:bold;
-    float:left;
-    margin-left:150px;
-    margin-top:20px;
-    margin-bottom:20px;
+    float: right;
+    margin-right: 40px;
+    height: 40px;
+    width: 100px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: rgb(80, 80, 80);
+    color: white;
+    padding: 7px 10px 7px 10px;
+    border-radius: 5px;
+    cursor: pointer;
 }
+
+.submit:hover{
+    background-color: rgb(128, 128, 128);
+    border: 1px solid rgb(128, 128, 128);
+}
+
 #close{
-    width:100px;
-    font-weight:bold;
-    float:left;
-    margin-left:150px;
-    margin-top:20px;
-    margin-bottom:20px;
+    float: right;
+    margin-right: 20px;
+    height: 40px;
+    width: 100px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: rgb(80, 80, 80);
+    color: white;
+    padding: 7px 10px 7px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#close:hover{
+    background-color: rgb(128, 128, 128);
+    border: 1px solid rgb(128, 128, 128);
+}
+
+.containerfooter{
+    width: 100%;
+}
+
+.footer{
+    height:250px;
+    width: 100%;
+    background-color: rgb(24, 24, 24);
 }

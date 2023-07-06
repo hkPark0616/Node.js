@@ -1,0 +1,207 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    /* padding:0;
+    height:100%; */
+    background-color: rgb(240, 240, 227);
+}
+
+.container{
+    width: 900px;
+    /*border:1px solid black;*/
+    margin:0 auto;
+    height: 150px;
+}
+
+
+.containernav{
+    width: 100%;
+    min-width: max-content;
+    /*border:1px solid black;*/
+    overflow: hidden;
+    margin:0 auto;
+    margin-top: 0px;
+}
+
+.logo{
+    float:left;
+    margin-left: 20px;
+    font-weight:bold;
+    height:40px;
+    width:100px;
+    margin-top: 10px;
+}
+
+.home{
+    text-decoration: none;
+    color: white;
+}
+
+.logo > div{
+    text-align:center;
+    top:8px;
+    position:relative;
+}
+
+#nav{
+    position: fixed;
+    background-color: rgb(24, 24, 24);
+    z-index: 1;
+}
+
+.nav{
+    min-width:500px;
+    float:right;
+    height:40px;
+    margin-right:20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.navline{
+    width: 100%;
+    margin: 0;
+    background: white;
+    
+}
+
+.nav > a{
+   color:white;
+   font-weight:bold;
+}
+
+.li{
+    margin-left:60px;
+    top:8px;
+    position:relative;
+}
+
+.navline{
+    width: 100%;
+    margin: 0;
+    background: white;
+}
+
+.main-container{
+    overflow:hidden;
+    width:100%;
+    margin:0 auto;
+    margin-top: 20px;
+}
+
+.content{
+    width: 1100px;
+    height: 700px;
+    margin: 0 auto;
+}
+
+.table{
+    margin: 0 auto;
+    border-collapse: collapse;
+    border: 1px solid black;
+    height: fit-content;
+}
+
+.top{
+    background: rgb(80, 80, 80);
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.num-title, .name-title, .title-title, .date-title{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 150px;
+    border: 1px solid rgb(187, 187, 187);
+}
+
+.num{
+    width: 100px;
+    font-size: 20px;
+    text-align: center;
+    border: 1px solid rgb(187, 187, 187);
+}
+
+.date{
+    font-size: 20px;
+    text-align: center;
+    width: 200px;
+    border: 1px solid rgb(187, 187, 187);
+}
+
+.name{
+    font-size: 20px;
+    text-align: center;
+    width: 120px;
+    border: 1px solid rgb(187, 187, 187);
+}
+
+.title{
+    font-size: 20px;
+    border: 1px solid rgb(187, 187, 187);
+}
+
+.content-title{
+    background: rgb(80, 80, 80);
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.table-content{
+    font-size: 20px;
+    vertical-align : top;
+    height: 400px;
+}
+
+.containerfooter{
+    width: 100%;
+}
+
+.footer{
+    height:250px;
+    width: 100%;
+    background-color: rgb(24, 24, 24);
+}
+
+.back{
+    margin-left: 106px;
+    margin-bottom: 10px;
+    background-color: rgb(80, 80, 80);
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 7px 10px 7px 10px;
+    width: 150px;
+    cursor: pointer;
+    position: relative;
+    height: 40px;
+}
+
+.back:hover{
+    background-color: rgb(128, 128, 128);
+    border: none;
+}
+
+.back-img{
+    width: 25px;
+    height: 25px;
+    float: left;
+    margin-left: 10px;
+}
+
+.back span{
+    margin-right: 10px;
+}
+
