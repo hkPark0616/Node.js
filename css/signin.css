@@ -1,0 +1,154 @@
+html, body{
+    margin: 0;
+    /* padding:0;
+    height:100%; */
+    background-color: rgb(240, 240, 227);
+}
+
+.containernav{
+    width: 100%;
+    min-width: max-content;
+    /*border:1px solid black;*/
+    overflow: hidden;
+    margin:0 auto;
+}
+
+.container{
+    height: 1000px;
+    width: 100%;
+}
+
+.signin-box{
+    border: 2px solid rgb(24, 24, 24);
+    border-radius: 10px;
+    box-shadow: 1px 1px 4px rgb(24, 24, 24);
+    margin: 0 auto;
+    width: 500px;
+    height: 600px;
+    position: relative;
+    top: 200px;
+    text-align: center;
+}
+
+.signin-text{
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 130px;
+    text-shadow: 4px 4px 4px rgb(136, 136, 136);
+}
+
+input{
+    margin-bottom: 15px;
+}
+
+input[type="text"]{
+    width: 300px;
+    height: 25px;
+    font-size: 23px;
+    border-radius: 10px;
+    padding-left: 5px;
+    box-shadow: 1px 1px 4px black;
+}
+
+input[type="password"]{
+    width: 300px;
+    height: 25px;
+    font-size: 23px;
+    border-radius: 10px;
+    padding-left: 5px;
+    box-shadow: 1px 1px 4px black;
+}
+
+input[type="submit"]{
+    width: 310px;
+    height: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    box-shadow: 1px 1px 4px black;
+    cursor: pointer;
+}
+
+input[type="button"]:hover{
+    background-color: rgb(180, 180, 180);
+}
+
+.etc{
+    font-size: 17px;
+    font-weight: bold;
+    margin-top: 20px;
+    line-height: 35px;
+}
+
+.etc a{
+    text-decoration: none;
+    color: black;
+}
+
+
+.containerfooter{
+    width: 100%;
+    min-width: max-content;
+    /*border:1px solid black;*/
+    overflow: hidden;
+    margin:0 auto;
+}
+
+.footer{
+    height:250px;
+    width: 100%;
+    background-color: rgb(24, 24, 24);
+    margin-bottom: auto;
+}
+
+.logo{
+    float:left;
+    margin-left: 30px;
+    font-weight:bold;
+    font-size: 18px;
+    height:40px;
+    width:100px;
+    margin-top: 10px;
+}
+.home{
+    text-decoration: none;
+    color: white;
+}
+.logo > div{
+    text-align:center;
+    top:8px;
+    position:relative;
+}
+#nav{
+    position: fixed;
+    background-color: rgb(24, 24, 24);
+    z-index: 1;
+}
+
+#section{
+    position: relative;
+    top: 70px;
+}
+.nav{
+    min-width:500px;
+    float:right;
+    height:40px;
+    margin-right:40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.navline{
+    width: 100%;
+    margin: 0;
+    background: white;
+    
+}
+.nav > a{
+   color:white;
+   font-weight:bold;
+}
+.li{
+    margin-left:60px;
+    top:8px;
+    position:relative;
+}

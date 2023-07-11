@@ -11,7 +11,7 @@ html, body{
     /*border:1px solid black;*/
     overflow: hidden;
     margin:0 auto;
-    margin-bottom:30px;
+    margin-bottom:50px;
 }
 .containernav{
     width: 100%;
@@ -19,8 +19,73 @@ html, body{
     /*border:1px solid black;*/
     overflow: hidden;
     margin:0 auto;
-
 }
+
+
+.login{
+    float: right;
+    display: block;
+}
+
+.logout{
+    float: right;
+    display: block;
+}
+
+.login-button{
+    width: 100px;
+    height: 30px;
+    float: right;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 15px;
+    margin-right: 60px;
+    border-radius: 5px;
+    background-color: rgb(240, 240, 227);
+    border: rgb(240, 240, 227);
+    cursor: pointer;
+}
+
+.logout-button{
+    width: 80px;
+    height: 25px;
+    float: right;
+    font-weight: bold;
+    margin-top: 18px;
+    margin-right: 60px;
+    border-radius: 5px;
+    background-color: rgb(240, 240, 227);
+    border: rgb(240, 240, 227);
+    cursor: pointer;
+}
+
+.user-name{
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    position: relative;
+    top: 18px;
+    border-left: 2px solid white;
+    padding-left: 50px;
+}
+
+.user-name-etc{
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    margin-right: 20px;
+    position: relative;
+    top: 18px;
+}
+
+.login-button:hover{
+    background-color: rgb(199, 199, 187);
+}
+
+.logout-button:hover{
+    background-color: rgb(199, 199, 187);
+}
+
 .containerfooter{
     width: 100%;
     min-width: max-content;
@@ -38,8 +103,9 @@ html, body{
 
 .logo{
     float:left;
-    margin-left: 20px;
+    margin-left: 30px;
     font-weight:bold;
+    font-size: 18px;
     height:40px;
     width:100px;
     margin-top: 10px;
@@ -67,7 +133,7 @@ html, body{
     min-width:500px;
     float:right;
     height:40px;
-    margin-right:20px;
+    margin-right:40px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -86,36 +152,13 @@ html, body{
     top:8px;
     position:relative;
 }
-.login{
-    border:1px solid black;
-    min-width:280px;
-    margin:20px;
-    height:400px;
-    float:left;
-    position: relative;
-}
+
+
 .form > p{
     font-size:26px;
     font-weight:bold;
 }
-.login input[type=text], .login input[type=password]{
-    width:150px;
-    width:150px;
-    height:20px;
-    margin-bottom:8px;
-    float: left;
 
-}
-
-.login input[type=submit]{
-    height:60px;
-    font-weight:bold;
-    border:none;
-    background:lightgray;
-    border-radius:5px;
-    cursor:pointer;
-    margin-right: -30px;
-}
 .form{
     width: 240px;
     text-align: center;
@@ -125,16 +168,16 @@ html, body{
     transform:translate(-50%,-65%);
     
 }
-.login input[type=submit]:hover{
-    background:gray;
-}
+
 .test{
     border:1px solid black;
-    max-width:100%;
+    max-width:80%;
     min-width: 500px;
-    margin:20px;
+    /* margin:20px; */
+    margin: 0 auto;
     height:400px;
     overflow: hidden;
+    position: relative;
 }
 .image{
     width:1150px;

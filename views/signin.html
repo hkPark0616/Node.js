@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="http://localhost:3001/signin.css">
+    <title>Title</title>
+</head>
+<body>
+    
+    <div class="containernav" id="nav">
+        <nav>
+            <div class="logo">
+                <div><a href="/" class="home">LOGO</a></div>
+            </div>
+
+            <div class="nav">
+                <a href="/"><span class="li">HOME</span></a>
+                <a href="#"><span class="li">CONTENT</span></a>
+                <a href="#"><span class="li">HOME</span></a>
+                <a href="#"><span class="li">HOME</span></a>
+            </div>
+
+        </nav>
+        <hr class="navline">
+    </div>
+
+    <div class="container">
+        <div class="signin-box">
+            <p class="signin-text">SIGNIN</p>
+            <form class="signin-form" method="POST" action="sign">
+
+                <input type="text" class="id" id="id" name="id" placeholder="id">
+
+                <input type="password" class="password" id="password" name="password" placeholder="password">
+
+                <input type="text" class="nickname" id="nickname" name="nickname" placeholder="nickname">
+
+                <input type="submit" value="SIGNIN">
+            </form>
+            <p class="etc">
+                <span><a href="/login">로그인하러 가기</a></span><br>
+                <span><a href="/">홈으로</a></span>
+            </p>
+            
+        </div>
+    </div>
+
+    <div class="containerfooter">
+        <div class="footer">
+
+        </div>
+    </div>
+</body>
+<script>
+    function signin(){
+        var id = document.getElementById("id").value;
+        var password = document.getElementById("password").value;
+        var nickname = document.getElementById("nickname").value;
+
+        if(id.length < 10){
+            alert("아이디는 10자 이상 입력해주세요.");
+        }
+        else if(password.length < 10){
+            alert("패스워드는 10글자 이상 입력해주세요.");
+        }
+        else if(nickname.length < 3){
+            alert("닉네임은 3글자 이상 입력해주세요.");
+        }
+        else if(id.length >= 10 && password.length >= 10 && nickname.length >= 3){
+            javascript:location.href='/sign';
+        }
+    }
+
+</script>
+</html>

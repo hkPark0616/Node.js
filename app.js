@@ -8,10 +8,13 @@ const router = express.Router();
 const app = express();
 const port = 3001;
 const db = require('./db');
-var fs = require('fs')
-var ejs = require('ejs')
+var fs = require('fs');
+var ejs = require('ejs');
 
-app.set("view engine", "ejs")
+const bcrypt = require('bcrypt');
+
+app.engine('html', require('ejs').renderFile);
+app.set("view engine", "ejs");
 const path = require('path'); 
 app.set('views', path.join(__dirname, 'views'));
 
@@ -175,3 +178,47 @@ app.get('/memo', (req, res) => {
   });
 });     
 
+app.get('/login', (req, res) => {
+  res.render(__dirname + '/views/login.html');
+});  
+
+app.get('/signin', (req, res) => {
+  res.render(__dirname + '/views/signin.html');
+});  
+
+app.use('/sign', (req, res) => {
+
+  let id = req.body.id;
+  let password = req.body.password;
+  let nickname = req.body.nickname;
+
+  const encryptedPassowrd = bcrypt.hashSync(password, 10);
+  
+  if(id.length < 10){
+      res.send(`<script type="text/javascript">alert("아이디는 10자 이상 입력해주세요.");
+                document.location.href="/signin";</script>`);
+  }
+  else if(password.length < 5){
+    res.send(`<script type="text/javascript">alert("패스워드는 5글자 이상 입력해주세요.");
+                document.location.href="/signin";</script>`);   
+  }
+  else if(nickname.length < 3){
+    res.send(`<script type="text/javascript">alert("닉네임은 3글자 이상 입력해주세요.");
+                document.location.href="/signin";</script>`); 
+  }
+  else{
+    db.getUser(id, nickname, (rows) => {
+        if(rows.length <= 0){
+          console.log(rows);
+          db.insertUser(id, encryptedPassowrd, nickname);
+          
+          res.redirect('/login');
+        }
+        else{
+          res.send(`<script type="text/javascript">alert("이미 존재하는 아이디 입니다."); 
+                          document.location.href="/signin";</script>`); 
+        }
+    });
+
+  }
+});  

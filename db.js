@@ -26,8 +26,21 @@ function getMemo(title, value, callback){
     });
 }
 
+function getUser(id, nickname, callback){
+    connection.query(`SELECT * FROM user WHERE id = '${id}';`, (err, rows, fields) => {
+        if(err) throw err;
+        callback(rows);
+    });
+}
+
+function insertUser(id, password, nickname){
+    connection.query(`INSERT INTO user(id, password, nickname) VALUES ('${id}','${password}', '${nickname}');`);
+}
+
 module.exports = {
     getAllMemos,
     insertMemo,
-    getMemo
+    getMemo,
+    getUser,
+    insertUser
 }
