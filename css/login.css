@@ -59,7 +59,7 @@ input[type="password"]{
     box-shadow: 1px 1px 4px black;
 }
 
-input[type="button"]{
+input[type="submit"]{
     width: 310px;
     height: 30px;
     font-size: 20px;

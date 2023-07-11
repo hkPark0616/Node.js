@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="http://localhost:3001/signin.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="http://localhost:3001/signin.js"></script>
     <title>Title</title>
 </head>
 <body>
@@ -53,25 +54,25 @@
     </div>
 </body>
 <script>
-    $(document).ready(function() {
-      $('#signupForm').submit(function(event) {
-        event.preventDefault();
-        var formData = $(this).serialize();
-        $.ajax({
-          type: 'POST',
-          url: '/sign',
-          data: formData,
-          success: function(data) {
-            // 회원가입 성공 시, 이후 처리 로직
-            window.location.href = '/login';
-          },
-          error: function(xhr, status, error) {
-            var errorMessage = xhr.responseJSON.message;
-            alert(errorMessage);
-          }
-        });
-      });
-    });
+    // $(document).ready(function() {
+    //   $('#signupForm').submit(function(event) {
+    //     event.preventDefault();
+    //     var formData = $(this).serialize();
+    //     $.ajax({
+    //       type: 'POST',
+    //       url: '/sign',
+    //       data: formData,
+    //       success: function(data) {
+    //         // 회원가입 성공 시, 이후 처리 로직
+    //         window.location.href = '/login';
+    //       },
+    //       error: function(xhr, status, error) {
+    //         var errorMessage = xhr.responseJSON.message;
+    //         alert(errorMessage);
+    //       }
+    //     });
+    //   });
+    // });
 
 </script>
 </html>
