@@ -195,16 +195,22 @@ app.use('/sign', (req, res) => {
   const encryptedPassowrd = bcrypt.hashSync(password, 10);
   
   if(id.length < 10){
-      res.send(`<script type="text/javascript">alert("아이디는 10자 이상 입력해주세요.");
-                document.location.href="/signin";</script>`);
+      // res.send(`<script type="text/javascript">alert("아이디는 10자 이상 입력해주세요.");
+      //           document.location.href="/signin";</script>`);
+      res.status(400).json({ message: '아이디는 최소 10글자 이상이어야 합니다.' });
+      return;
   }
   else if(password.length < 5){
-    res.send(`<script type="text/javascript">alert("패스워드는 5글자 이상 입력해주세요.");
-                document.location.href="/signin";</script>`);   
+    // res.send(`<script type="text/javascript">alert("패스워드는 5글자 이상 입력해주세요.");
+    //             document.location.href="/signin";</script>`);   
+    res.status(400).json({ message: '비밀번호는 최소 5글자 이상이어야 합니다.' });
+    return;
   }
   else if(nickname.length < 3){
-    res.send(`<script type="text/javascript">alert("닉네임은 3글자 이상 입력해주세요.");
-                document.location.href="/signin";</script>`); 
+    // res.send(`<script type="text/javascript">alert("닉네임은 3글자 이상 입력해주세요.");
+    //             document.location.href="/signin";</script>`); 
+    res.status(400).json({ message: '닉네임은 최소 3글자 이상이어야 합니다.' });
+    return;
   }
   else{
     db.getUser(id, nickname, (rows) => {
@@ -215,8 +221,10 @@ app.use('/sign', (req, res) => {
           res.redirect('/login');
         }
         else{
-          res.send(`<script type="text/javascript">alert("이미 존재하는 아이디 입니다."); 
-                          document.location.href="/signin";</script>`); 
+          // res.send(`<script type="text/javascript">alert("이미 존재하는 아이디 입니다."); 
+          //                 document.location.href="/signin";</script>`); 
+          res.status(400).json({ message: '이미 존재하는 아이디 입니다.' });
+          return;
         }
     });
 

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="http://localhost:3001/signin.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Title</title>
 </head>
 <body>
@@ -27,7 +28,7 @@
     <div class="container">
         <div class="signin-box">
             <p class="signin-text">SIGNIN</p>
-            <form class="signin-form" method="POST" action="sign">
+            <form class="signin-form" id="signupForm" method="POST" action="sign">
 
                 <input type="text" class="id" id="id" name="id" placeholder="id">
 
@@ -52,24 +53,25 @@
     </div>
 </body>
 <script>
-    function signin(){
-        var id = document.getElementById("id").value;
-        var password = document.getElementById("password").value;
-        var nickname = document.getElementById("nickname").value;
-
-        if(id.length < 10){
-            alert("아이디는 10자 이상 입력해주세요.");
-        }
-        else if(password.length < 10){
-            alert("패스워드는 10글자 이상 입력해주세요.");
-        }
-        else if(nickname.length < 3){
-            alert("닉네임은 3글자 이상 입력해주세요.");
-        }
-        else if(id.length >= 10 && password.length >= 10 && nickname.length >= 3){
-            javascript:location.href='/sign';
-        }
-    }
+    $(document).ready(function() {
+      $('#signupForm').submit(function(event) {
+        event.preventDefault();
+        var formData = $(this).serialize();
+        $.ajax({
+          type: 'POST',
+          url: '/sign',
+          data: formData,
+          success: function(data) {
+            // 회원가입 성공 시, 이후 처리 로직
+            window.location.href = '/login';
+          },
+          error: function(xhr, status, error) {
+            var errorMessage = xhr.responseJSON.message;
+            alert(errorMessage);
+          }
+        });
+      });
+    });
 
 </script>
 </html>
