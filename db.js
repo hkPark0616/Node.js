@@ -37,10 +37,18 @@ function insertUser(id, password, nickname){
     connection.query(`INSERT INTO user(id, password, nickname) VALUES ('${id}','${password}', '${nickname}');`);
 }
 
+function checkUser(id, callback){
+    connection.query(`SELECT password FROM user WHERE id = '${id}';`, (err, rows, fields) => {
+        if(err) throw err;
+        callback(rows);
+    });
+}
+
 module.exports = {
     getAllMemos,
     insertMemo,
     getMemo,
     getUser,
-    insertUser
+    insertUser,
+    checkUser
 }

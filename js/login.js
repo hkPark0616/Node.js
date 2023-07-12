@@ -1,15 +1,14 @@
-
 $(document).ready(function() {
-    $('#signupForm').submit(function(event) {
+    $('#loginform').submit(function(event) {
       event.preventDefault();
       var formData = $(this).serialize();
       $.ajax({
         type: 'POST',
-        url: '/sign',
+        url: '/login',
         data: formData,
         success: function(data) {
-          // 회원가입 성공 시, 이후 처리 로직
-          window.location.href = '/loginpage';
+          // 로그인 성공 시, 이후 처리 로직
+          window.location.href = '/';
         },
         error: function(xhr, status, error) {
           var errorMessage = xhr.responseJSON.message;
@@ -18,3 +17,4 @@ $(document).ready(function() {
       });
     });
   });
+  

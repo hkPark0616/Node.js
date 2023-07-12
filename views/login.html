@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="http://localhost:3001/login.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="http://localhost:3001/login.js"></script>
     <title>Title</title>
 </head>
 <body>
@@ -27,7 +29,7 @@
     <div class="container">
         <div class="login-box">
             <p class="login-text">LOGIN</p>
-            <form class="login-form" id="loginform">
+            <form class="login-form" id="loginform" method="POST" action="login">
 
                 <input type="text" class="id" name="id" placeholder="id">
 
