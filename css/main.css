@@ -57,6 +57,10 @@ html, body{
     background-color: rgb(240, 240, 227);
     border: rgb(240, 240, 227);
     cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    padding-top: 2px;
 }
 
 .user-name{

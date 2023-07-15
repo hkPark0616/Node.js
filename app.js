@@ -20,22 +20,29 @@ app.set('views', path.join(__dirname, 'views'));
 
 const mysql = require('mysql2');
 
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'rainbow@6861',
-  port: 3306,
-  database: 'nodejs'
-});
+const session = require('express-session');
+const bodyParser = require('body-parser');
+
+// 세션 미들웨어 설정
+app.use(session({
+  secret: 'your-secret-key',
+  resave: false,
+  saveUninitialized: false
+}));
+
+app.use(bodyParser.urlencoded({ extended: true }));
 
 
-app.use(express.urlencoded({ extended: false }));
-/*app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/views/main.html');
-});*/
 app.get('/', function (req, res, next) {
   db.getAllMemos((rows) => {
-    res.render(__dirname + '/views/main.ejs', { rows: rows });
+
+    if(req.session.user){
+      res.render(__dirname + '/views/main.ejs', { rows: rows, user: req.session.user });
+    }
+    else{
+      res.render(__dirname + '/views/main.ejs', { rows: rows });
+    }
+    
   });
 });
 
@@ -47,17 +54,6 @@ app.listen(port, () => {
 app.use('/', express.static("css"));
 app.use('/', express.static("images"));
 app.use('/', express.static("js"));
-
-
-/*router.get('/board', (req, res) => {
-  res.sendFile(__dirname + '/views/board.html');
-  
-});*/
-// app.get('/board/:cur', function(req, res, next) {
-//   db.getAllMemos((rows) =>{
-//     res.render(__dirname + '/views/board.ejs', { rows : rows });
-//   });
-// });
 
 app.get("/board/:cur", function (req, res) {
 
@@ -191,6 +187,10 @@ app.use('/login', (req, res) => {
       let same = bcrypt.compareSync(password, rows[0].password);
 
       if (same) {
+        req.session.user = {
+          id: id,
+          name: id
+        };
         res.redirect('/');
       } else {
         res.status(400).json({ message: '비밀번호를 확인해주세요.' });
@@ -200,6 +200,17 @@ app.use('/login', (req, res) => {
       res.status(400).json({ message: '아이디를 확인해주세요.' });
       return;
     }
+  });
+});
+
+
+app.get('/logout', (req, res) => {
+  
+  req.session.destroy((err) => {
+    if (err) {
+      console.log(err);
+    }
+    res.redirect('/');
   });
 });
 
