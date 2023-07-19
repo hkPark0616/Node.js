@@ -1,0 +1,14 @@
+.containerfooter{
+    width: 100%;
+    min-width: max-content;
+    /*border:1px solid black;*/
+    overflow: hidden;
+    margin:0 auto;
+}
+
+.footer{
+    height:250px;
+    width: 100%;
+    background-color: rgb(24, 24, 24);
+    margin-bottom: auto;
+}

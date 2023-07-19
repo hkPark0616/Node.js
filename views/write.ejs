@@ -6,20 +6,7 @@
     <title>Title</title>
 </head>
 <body>
-    <div class="containernav" id="nav">
-        <nav>
-            <div class="logo">
-                <div><a href="/" class="home">LOGO</a></div>
-            </div>
-            <div class="nav">
-                <a href="/"><span class="li">HOME</span></a>
-                <a href="#"><span class="li">CONTENT</span></a>
-                <a href="#"><span class="li">HOME</span></a>
-                <a href="#"><span class="li">HOME</span></a>
-            </div>
-        </nav>
-        <hr class="navline">
-    </div>
+    <%-include('header.ejs')%>
 
     <div class="container">
 
@@ -75,10 +62,7 @@
 
     </div>
 
-    <div class="containerfooter">
-        <div class="footer">
-
-        </div>
-    </div>
+    <%-include('footer.ejs')%>
+    
 </body>
 </html>

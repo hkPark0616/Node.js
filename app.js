@@ -30,6 +30,14 @@ app.use(session({
   saveUninitialized: false
 }));
 
+const connection = mysql.createConnection({
+  host:'localhost',
+  user:'root',
+  password:'rainbow@6861',
+  port:3306,
+  database:'nodejs'
+});
+
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
@@ -75,11 +83,8 @@ app.get("/board/:cur", function (req, res) {
     //전체 게시물의 숫자
     totalPageCount = data[0].cnt
 
-    //현제 페이지 
+    //현재 페이지 
     var curPage = req.params.cur;
-
-    console.log("현재 페이지 : " + curPage, "전체 페이지 : " + totalPageCount);
-
 
     //전체 페이지 갯수
     if (totalPageCount < 0) {
@@ -101,8 +106,6 @@ app.get("/board/:cur", function (req, res) {
       no = (curPage - 1) * 10
     }
 
-    console.log('[0] curPage : ' + curPage + ' | [1] page_list_size : ' + page_list_size + ' | [2] page_size : ' + page_size + ' | [3] totalPage : ' + totalPage + ' | [4] totalSet : ' + totalSet + ' | [5] curSet : ' + curSet + ' | [6] startPage : ' + startPage + ' | [7] endPage : ' + endPage)
-
     var result2 = {
       "curPage": curPage,
       "page_list_size": page_list_size,
@@ -121,7 +124,6 @@ app.get("/board/:cur", function (req, res) {
         console.log("ejs오류" + error);
         return
       }
-      console.log("몇번부터 몇번까지냐~~~~~~~" + no)
 
       var queryString = 'SELECT * FROM board ORDER BY date DESC LIMIT ?,?';
       connection.query(queryString, [no, page_size], function (error, result) {
@@ -129,11 +131,15 @@ app.get("/board/:cur", function (req, res) {
           console.log("페이징 에러" + error);
           return
         }
-
-        res.send(ejs.render(data, {
-          data: result,
-          pasing: result2
-        }));
+        if(req.session.user){
+          res.render(__dirname + '/views/board.ejs', {data: result,
+                                                      pasing: result2,
+                                                      user: req.session.user});
+        }
+        else{
+          res.render(__dirname + '/views/board.ejs', {data: result,
+            pasing: result2});
+        }
       });
     });
   });
@@ -152,8 +158,23 @@ app.get('/write', (req, res) => {
   today.setHours(today.getHours() + 9);
   let date = today.toISOString().replace('T', ' ').substring(0, 10);
 
-  res.render(__dirname + '/views/write.ejs', { date });
+  if(req.session.user){
+    res.render(__dirname + '/views/write.ejs', { date, user: req.session.user });
+  }
+  else{
+    res.status(400).json({ message: '로그인 후 이용가능합니다.' });
+  }
+  
 });
+
+app.get('/checkSession', (req, res) => {
+  if (req.session.user) {
+    res.json({ sessionExists: true });
+  } else {
+    res.json({ sessionExists: false });
+  }
+});
+
 
 app.use('/insert', function (req, res, next) {
   let title = req.body.title;
@@ -170,7 +191,13 @@ app.get('/memo', (req, res) => {
   let value = req.query.value;
 
   db.getMemo(title, value, (rows) => {
-    res.render(__dirname + '/views/memo.ejs', { rows: rows });
+
+    if(req.session.user){
+      res.render(__dirname + '/views/memo.ejs', { rows: rows, user: req.session.user });
+    }
+    else{
+      res.render(__dirname + '/views/memo.ejs', { rows: rows });
+    }
   });
 });
 

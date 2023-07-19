@@ -1,0 +1,127 @@
+.containernav{
+    width: 100%;
+    min-width: max-content;
+    /*border:1px solid black;*/
+    overflow: hidden;
+    margin:0 auto;
+}
+
+.login{
+    float: right;
+    display: block;
+}
+
+.logout{
+    float: right;
+    display: block;
+}
+
+.login-button{
+    width: 100px;
+    height: 30px;
+    float: right;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 15px;
+    margin-right: 60px;
+    border-radius: 5px;
+    background-color: rgb(240, 240, 227);
+    border: rgb(240, 240, 227);
+    cursor: pointer;
+}
+
+.logout-button{
+    width: 80px;
+    height: 25px;
+    float: right;
+    font-weight: bold;
+    margin-top: 18px;
+    margin-right: 60px;
+    border-radius: 5px;
+    background-color: rgb(240, 240, 227);
+    border: rgb(240, 240, 227);
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    padding-top: 2px;
+}
+
+.user-name{
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    position: relative;
+    top: 18px;
+    border-left: 2px solid white;
+    padding-left: 50px;
+}
+
+.user-name-etc{
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    margin-right: 20px;
+    position: relative;
+    top: 18px;
+}
+
+.login-button:hover{
+    background-color: rgb(199, 199, 187);
+}
+
+.logout-button:hover{
+    background-color: rgb(199, 199, 187);
+}
+
+.logo{
+    float:left;
+    margin-left: 30px;
+    font-weight:bold;
+    font-size: 18px;
+    height:40px;
+    width:100px;
+    margin-top: 10px;
+}
+.home{
+    text-decoration: none;
+    color: white;
+}
+.logo > div{
+    text-align:center;
+    top:8px;
+    position:relative;
+}
+#nav{
+    position: fixed;
+    background-color: rgb(24, 24, 24);
+    z-index: 1;
+}
+
+#section{
+    position: relative;
+    top: 70px;
+}
+.nav{
+    min-width:500px;
+    float:right;
+    height:40px;
+    margin-right:40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.navline{
+    width: 100%;
+    margin: 0;
+    background: white;
+    
+}
+.nav > a{
+   color:white;
+   font-weight:bold;
+}
+.li{
+    margin-left:60px;
+    top:8px;
+    position:relative;
+}

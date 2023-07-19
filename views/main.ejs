@@ -3,41 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="http://localhost:3001/main.css">
-    <title>Title</title>
+    <title>Main</title>
 </head>
 <body>
-    
-    <div class="containernav" id="nav">
-        <nav>
-            <div class="logo">
-                <div><a href="/" class="home">LOGO</a></div>
-            </div>
-
-            
-            <% if ( typeof user != 'undefined') { %>
-                <div class="logout">
-                    <span class="user-name"><%= user.name %></span><span class="user-name-etc">&nbsp;님</span>
-                    <a href="/logout" class="logout-button">LOGOUT</a>
-                </div>
-            <% } else { %>
-                <div class="login">
-                    <a href="/loginpage"><button class="login-button">LOGIN</button></a>
-                </div>
-            <% } %>
-
-
-
-
-            <div class="nav">
-                <a href="/"><span class="li">HOME</span></a>
-                <a href="#"><span class="li">CONTENT</span></a>
-                <a href="#"><span class="li">HOME</span></a>
-                <a href="#"><span class="li">HOME</span></a>
-            </div>
-
-        </nav>
-        <hr class="navline">
-    </div>
+    <%-include('header.ejs')%>
 
     <div class="container" id="section">
         <div class="test">
@@ -82,10 +51,7 @@
         </div>
 
     </div>
-    <div class="containerfooter">
-        <div class="footer">
 
-        </div>
-    </div>
+    <%-include('footer.ejs')%>
 </body>
 </html>

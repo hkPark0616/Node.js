@@ -77,66 +77,6 @@ html, body{
     border-right: 1px solid rgb(187, 187, 187);
 }
 
-
-.containernav{
-    width: 100%;
-    min-width: max-content;
-    /*border:1px solid black;*/
-    overflow: hidden;
-    margin:0 auto;
-    margin-top: 0px;
-}
-.logo{
-    float:left;
-    margin-left: 20px;
-    font-weight:bold;
-    height:40px;
-    width:100px;
-    margin-top: 10px;
-}
-.home{
-    text-decoration: none;
-    color: white;
-}
-.logo > div{
-    text-align:center;
-    top:8px;
-    position:relative;
-}
-#nav{
-    position: fixed;
-    background-color: rgb(24, 24, 24);
-    z-index: 1;
-}
-.nav{
-    min-width:500px;
-    float:right;
-    height:40px;
-    margin-right:20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-.navline{
-    width: 100%;
-    margin: 0;
-    background: white;
-    
-}
-.nav > a{
-   color:white;
-   font-weight:bold;
-}
-.li{
-    margin-left:60px;
-    top:8px;
-    position:relative;
-}
-.navline{
-    width: 100%;
-    margin: 0;
-    background: white;
-}
-
 .button{
     height: 70px;
 }
@@ -178,14 +118,4 @@ html, body{
 #close:hover{
     background-color: rgb(128, 128, 128);
     border: 1px solid rgb(128, 128, 128);
-}
-
-.containerfooter{
-    width: 100%;
-}
-
-.footer{
-    height:250px;
-    width: 100%;
-    background-color: rgb(24, 24, 24);
 }
