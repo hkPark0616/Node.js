@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <link rel="stylesheet" href="http://localhost:3001/memo.css">
+  <script type="text/javascript" src="http://localhost:3001/memoCheck.js"></script>
   <title>Document</title>
 </head>
 <body>
@@ -26,7 +28,7 @@
           <td class="date-title">작성일</td>
           <td class="date"><%= rows[0].date %></td>
           <td class="name-title">작성자</td>
-          <td class="name"><%= rows[0].name %></td>
+          <td class="name" name="name"><%= rows[0].name %></td>
         </tr>
 
         <tr>
@@ -41,7 +43,13 @@
         </tr>
       </table>
 
+      <div class="update-delete">
+        <a href="#" class="update-button" id="update-button">수정</a>
+        <a href="#" class="delete-button" id="delete-button">삭제</a>
+      </div>
+
     </div>
+
 
   </div>
 

@@ -108,6 +108,7 @@ html, body{
     cursor: pointer;
     position: relative;
     height: 40px;
+    border: none;
 }
 
 .back:hover{
@@ -120,9 +121,47 @@ html, body{
     height: 25px;
     float: left;
     margin-left: 10px;
+    margin-bottom: 2px;
 }
 
 .back span{
     margin-right: 10px;
 }
+
+.update-delete{
+    float: right;
+    margin-top: 30px;
+    margin-right: 110px;
+}
+
+.update-button{
+    margin-right: 25px;
+    background-color: rgb(80, 80, 80);
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 7px 15px 7px 15px;
+    cursor: pointer;
+    height: 40px;
+    text-decoration: none;
+}
+
+.delete-button{
+    background-color: rgb(80, 80, 80);
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 7px 15px 7px 15px;
+    cursor: pointer;
+    height: 40px;
+    text-decoration: none;
+}
+
+.update-button:hover, .delete-button:hover{
+    background-color: rgb(128, 128, 128);
+    border: none;
+}
+
 

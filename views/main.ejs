@@ -40,7 +40,7 @@
                                 <li><a href="#" value="<%= row.num %>"><%= row.title %></a></li> 
                             <% }) %>     -->
                             <% for(var i = 0;i < rows.length;i++) { %>
-                                <li><a href="memo?title=<%= rows[i].title %>&value=<%= rows[i].num %>" value="<%= rows[i].num %>"><%= rows[i].title %></a></li>          
+                                <li><a href="memo?title=<%= rows[i].title %>&value=<%= rows[i].num %>&name=<%= rows[i].name %>" value="<%= rows[i].num %>"><%= rows[i].title %></a></li>          
                                 <% if(i === 4) break; %>
                             <% } %>      
                         </ul>

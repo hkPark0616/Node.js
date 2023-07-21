@@ -201,6 +201,23 @@ app.get('/memo', (req, res) => {
   });
 });
 
+app.get('/checkMemoSession', (req, res) => {
+  
+  let name = req.query.name;
+
+  if(req.session.user){
+
+    if (req.session.user.name === name) {
+      res.json({ sessionCompare: true });
+    } else {
+      res.json({ sessionCompare: false });
+    }
+
+  }else{
+    res.json({ sessionCompare: false });
+  }
+});
+
 app.get('/loginpage', (req, res) => {
   res.render(__dirname + '/views/login.html');
 });
