@@ -44,11 +44,30 @@ function checkUser(id, callback){
     });
 }
 
+function getInfo(title, value, name, callback){
+    connection.query(`SELECT * FROM board WHERE title = '${title}' && num = '${value}' && name = '${name}';`, (err, rows, fields) => {
+        if(err) throw err;
+        callback(rows);
+    });
+}
+
+function memoUpdate(title, value, name, content){
+    connection.query(`UPDATE board SET content = '${content}' WHERE title = '${title}' 
+                            AND num = '${value}' AND name = '${name}';`);
+}
+
+function memoDelete(title, name, value){
+    connection.query(`DELETE FROM board WHERE title = '${title}' && num = '${value}' && name = '${name}';`)
+}
+
 module.exports = {
     getAllMemos,
     insertMemo,
     getMemo,
     getUser,
     insertUser,
-    checkUser
+    checkUser,
+    getInfo,
+    memoUpdate,
+    memoDelete
 }

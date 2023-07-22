@@ -23,6 +23,20 @@ const mysql = require('mysql2');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 
+const livereload = require('livereload');
+const livereloadMiddleware = require('connect-livereload');
+
+const liveServer = livereload.createServer({
+  // 변경시 다시 로드할 파일 확장자들 설정
+  exts: ['html', 'css', 'ejs', 'js'],
+  debug: true
+});
+
+liveServer.watch(__dirname);
+
+// livereload 미들웨어 설정
+app.use(livereloadMiddleware());
+
 // 세션 미들웨어 설정
 app.use(session({
   secret: 'your-secret-key',
@@ -39,6 +53,7 @@ const connection = mysql.createConnection({
 });
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 
 app.get('/', function (req, res, next) {
@@ -180,11 +195,50 @@ app.use('/insert', function (req, res, next) {
   let title = req.body.title;
   let name = req.body.name;
   let content = req.body.content;
-
+  if(title.length <= 0){
+    res.status(400).json({ message: '글 제목을 입력해주세요.' });
+        return;
+  }
+  else if(content.length <= 0){
+    res.status(400).json({ message: '내용을 입력해주세요.' });
+    return;
+  }
   db.insertMemo(content, title, name);
 
   res.redirect('/main');
 });
+
+app.use('/modify', function (req, res, next) {
+  let title = req.query.title;
+  let value = req.query.value;
+  let name = req.query.name;
+  
+  db.getInfo(title, value, name, (rows) => {
+    res.render(__dirname + '/views/modify.ejs', { rows: rows, user: req.session.user });
+  });
+});
+
+app.use('/update', function (req, res, next) {
+  let title = req.query.title;
+  let name = req.query.name;
+  let content = req.body.content;
+  let value = req.query.value;
+
+  db.memoUpdate(title, value, name, content);
+  
+  res.redirect(`/memo/?title=${title}&value=${value}&name=${name}`);
+});
+
+app.use('/delete', function (req, res, next) {
+  let title = req.body.title;
+  let name = req.body.name;
+  let value = req.body.value;
+
+  db.memoDelete(title, name, value);
+
+  res.send('게시글이 삭제되었습니다.');
+});
+
 
 app.get('/memo', (req, res) => {
   let title = req.query.title;

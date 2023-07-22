@@ -1,0 +1,123 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    /* padding:0;
+    height:100%; */
+    background-color: rgb(240, 240, 227);
+}
+
+.container{
+    width: max-content;
+    /*border:1px solid black;*/
+    margin:0 auto;
+    height: 150px;
+}
+
+.title-container{
+    width: max-content;
+    /*border:1px solid black;*/
+    margin:0 auto;
+    height: 80px;
+}
+
+.main-container{
+    overflow:hidden;
+    width:100%;
+    margin:0 auto;
+}
+
+.table{
+    border: 1px solid black;
+    margin: 0 auto;
+    width: 1000px;
+    border-collapse: collapse;
+}
+
+.top{
+    background-color: rgb(24, 24, 24);
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.top th{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.empty{
+    height: 20px;
+}
+
+.input-title{
+    width: 95%;
+    font-size: 20px;
+    margin-left: 20px;
+    border: 1px solid black;
+}
+.input-name{
+    width: 95%;
+    font-size: 20px;
+    margin-left: 20px;
+    border: 1px solid black;
+}
+.input-date{
+    font-size: 20px;
+    margin-left: 20px;
+    border: 1px solid black;
+}
+.input-content{
+    width: 95%;
+    font-size: 18px;
+    margin-left: 20px;
+}
+
+.title, .name, .date, .content, .empty-td{
+    height: 50px;
+    width: 150px;
+    font-size: 20px;
+    padding: 0;
+    border-right: 1px solid rgb(187, 187, 187);
+}
+
+.button{
+    height: 70px;
+}
+.submit{
+    float: right;
+    margin-right: 40px;
+    height: 40px;
+    width: 100px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: rgb(80, 80, 80);
+    color: white;
+    padding: 7px 10px 7px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit:hover{
+    background-color: rgb(128, 128, 128);
+    border: 1px solid rgb(128, 128, 128);
+}
+
+#close{
+    float: right;
+    margin-right: 20px;
+    height: 40px;
+    width: 100px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: rgb(80, 80, 80);
+    color: white;
+    padding: 7px 10px 7px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#close:hover{
+    background-color: rgb(128, 128, 128);
+    border: 1px solid rgb(128, 128, 128);
+}

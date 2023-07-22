@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="http://localhost:3001/write.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="http://localhost:3001/writeCheck.js"></script>
     <title>Title</title>
 </head>
 <body>
@@ -16,7 +18,7 @@
     </div>
 
     <div class="main-container">
-        <form method="POST" action="insert">
+        <form id="write-form" method="POST">
             <table class="table">
                 <tr class="top">
                     <th colspan="2">글 작성하기</th>
@@ -30,11 +32,11 @@
                 </tr>
                 <tr>
                     <th class="name">작성자</th>
-                    <td><input type="text" name="name" class="input-name"></td>
+                    <td><input type="text" name="name" class="input-name" value="<%= user.name %>" readonly></td>
                 </tr>
                 <tr>
                     <th class="date">날짜</th>
-                    <td ><input type="text" class="input-date" value="<%= date %>" disabled></td>
+                    <td ><input type="text" class="input-date" value="<%= date %>" readonly></td>
                 </tr>
                 <tr>
                     <th class="content">내용</th>

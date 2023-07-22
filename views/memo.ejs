@@ -5,6 +5,7 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <link rel="stylesheet" href="http://localhost:3001/memo.css">
   <script type="text/javascript" src="http://localhost:3001/memoCheck.js"></script>
+  <script type="text/javascript" src="http://localhost:3001/delete.js"></script>
   <title>Document</title>
 </head>
 <body>
@@ -44,8 +45,8 @@
       </table>
 
       <div class="update-delete">
-        <a href="#" class="update-button" id="update-button">수정</a>
-        <a href="#" class="delete-button" id="delete-button">삭제</a>
+        <a href="/modify/?title=<%= rows[0].title %>&value=<%= rows[0].num %>&name=<%= rows[0].name %>" class="update-button" id="update-button">수정</a>
+        <a class="delete-button" id="delete-button">삭제</a>
       </div>
 
     </div>
