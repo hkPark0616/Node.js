@@ -380,12 +380,29 @@ app.use('/commend', (req, res) => {
   
 });
 
+// app.use('/getCommend', (req, res) => {
+//   let value = req.query.value;
+
+//   db.getCommend(value, (rows) => {
+//     res.json(rows);
+//   });
+// });
+
 app.use('/getCommend', (req, res) => {
   let value = req.query.value;
+  let offset = parseInt(req.query.offset) || 0; // 기본값으로 0을 사용하며, 파라미터가 제공되지 않을 경우 0으로 설정합니다.
+  let limit = 5; // 한 번에 가져올 댓글 개수를 5로 설정합니다.
 
-  db.getCommend(value, (rows) => {
+  db.getCommend(value, offset, limit, (rows) => {
     res.json(rows);
   });
 });
 
+
+app.get('/getCommentCount', (req, res) => {
+  let value = req.query.value;  
+  db.getCommendCount(value, (rows) => {
+    res.json(rows); 
+  });
+});
 

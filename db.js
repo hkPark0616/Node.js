@@ -72,12 +72,29 @@ function commendInsert(value, content, user, commendId){
     VALUES ('${value}', '${user}', NOW(), '${content}', '${commendId}');`);
 }
 
-function getCommend(value, callback){
-    connection.query(`SELECT * FROM commend WHERE memo_id = '${value}' ORDER BY  commend_date DESC;`, (err, rows, fields) => {
-        if(err) throw err;
+// function getCommend(value, callback){
+//     connection.query(`SELECT * FROM commend WHERE memo_id = '${value}' ORDER BY  commend_date DESC;`, (err, rows, fields) => {
+//         if(err) throw err;
+//         callback(rows);
+//     });
+// }
+
+function getCommend(value, offset, limit, callback) {
+    connection.query(
+      `SELECT * FROM commend WHERE memo_id = '${value}' ORDER BY commend_date DESC LIMIT ${offset}, ${limit};`,
+      (err, rows, fields) => {
+        if (err) throw err;
         callback(rows);
+      }
+    );
+  }
+
+  function getCommendCount(value, callback) {
+    connection.query(`SELECT COUNT(*) AS count FROM commend WHERE memo_id = '${value}';`, (err, rows, fields) => {
+      if (err) throw err;
+      callback(rows); // 댓글 전체 개수를 콜백으로 전달
     });
-}
+  }
 
 module.exports = {
     getAllMemos,
@@ -91,5 +108,6 @@ module.exports = {
     memoDelete,
     getMemosPagenation,
     commendInsert,
-    getCommend
+    getCommend,
+    getCommendCount
 }
