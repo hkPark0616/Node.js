@@ -132,33 +132,37 @@ app.get("/board/:cur", function (req, res) {
       "endPage": endPage
     };
 
-
-    fs.readFile(__dirname + '/views/board.ejs', 'utf-8', function (error, data) {
-
-      if (error) {
-        console.log("ejs오류" + error);
-        return
+    // 변경 후
+    db.getMemosPagenation(no, page_size, (rows) => {
+      if(req.session.user){
+        res.render(__dirname + '/views/board.ejs', {data: rows,
+                                                    pasing: result2,
+                                                    user: req.session.user});
       }
-
-      var queryString = 'SELECT * FROM board ORDER BY date DESC LIMIT ?,?';
-      connection.query(queryString, [no, page_size], function (error, result) {
-        if (error) {
-          console.log("페이징 에러" + error);
-          return
-        }
-        if(req.session.user){
-          res.render(__dirname + '/views/board.ejs', {data: result,
-                                                      pasing: result2,
-                                                      user: req.session.user});
-        }
-        else{
-          res.render(__dirname + '/views/board.ejs', {data: result,
-            pasing: result2});
-        }
-      });
+      else{
+        res.render(__dirname + '/views/board.ejs', {data: rows,
+          pasing: result2});
+      }
     });
-  });
 
+      // 변경 전
+      // var queryString = 'SELECT * FROM board ORDER BY date DESC LIMIT ?,?';
+      // connection.query(queryString, [no, page_size], function (error, result) {
+      //   if (error) {
+      //     console.log("페이징 에러" + error);
+      //     return
+      //   }
+      //   if(req.session.user){
+      //     res.render(__dirname + '/views/board.ejs', {data: result,
+      //                                                 pasing: result2,
+      //                                                 user: req.session.user});
+      //   }
+      //   else{
+      //     res.render(__dirname + '/views/board.ejs', {data: result,
+      //       pasing: result2});
+      //   }
+      // });
+  });
 });
 
 app.get("/main", function (req, res) {
@@ -355,3 +359,33 @@ app.use('/sign', (req, res) => {
 
   }
 });  
+
+app.use('/commend', (req, res) => {
+  let currentDate = new Date();
+  const dateString = currentDate.toISOString();
+  const formattedDate = dateString.replace(/[-T:.Z]/g, '');
+  
+  let value = req.query.value;
+  let content = req.body.textBox;
+  let user = req.session.user.name;
+  let commendId = value + "_" + formattedDate;
+  if(content <= 0){
+    res.status(400).json({ message: '댓글을 작성해주세요.' });
+    return;
+  }
+  else{
+    db.commendInsert(value, content, user, commendId);
+    res.send('댓글 작성이 완료되었습니다.');
+  }
+  
+});
+
+app.use('/getCommend', (req, res) => {
+  let value = req.query.value;
+
+  db.getCommend(value, (rows) => {
+    res.json(rows);
+  });
+});
+
+

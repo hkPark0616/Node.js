@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="http://localhost:3001/memo.css">
   <script type="text/javascript" src="http://localhost:3001/memoCheck.js"></script>
   <script type="text/javascript" src="http://localhost:3001/delete.js"></script>
+  <script type="text/javascript" src="http://localhost:3001/commend.js"></script>
   <title>Document</title>
 </head>
 <body>
@@ -49,14 +50,28 @@
         <a class="delete-button" id="delete-button">삭제</a>
       </div>
 
+      <div class="commend">
+        <p class="commend-title">댓글<span>&nbsp;&#40;</span><span class="cnt"></span><span>&#41;</span></p>
+        <hr>
+        <form class="write-commend" id="write-commend" method="POST">
+          <textarea id="textBox" class="write-textarea" maxlength="100" name="textBox" placeholder="최대 100자"></textarea>
+          <span id="textCount">0 / 100자</span>
+          <input type="submit" id="commend-submit" value="등록">
+        </form>
+        <hr>
+      </div>
+      
+
+      <div class="recommend-div">
+      </div>
+
+      <div class="more-div">
+        <a href="#" class="more">댓글 더보기 ▼</a>
+      </div>
+
     </div>
-
-
   </div>
 
-  <div class="container">
-
-  </div>
 
   <%-include('footer.ejs')%>
   

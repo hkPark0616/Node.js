@@ -15,6 +15,13 @@ function getAllMemos(callback){
     });
 }
 
+function getMemosPagenation(no, page_size, callback){
+    connection.query(`SELECT * FROM board ORDER BY date DESC LIMIT ${no}, ${page_size}`, (err, rows, fields) => {
+        if(err) throw err;
+        callback(rows);
+    });
+}
+
 function insertMemo(content, title, name){
     connection.query(`INSERT INTO board (content, date, name, title) VALUES ('${content}',NOW(),'${name}', '${title}')`);
 }
@@ -60,6 +67,18 @@ function memoDelete(title, name, value){
     connection.query(`DELETE FROM board WHERE title = '${title}' && num = '${value}' && name = '${name}';`)
 }
 
+function commendInsert(value, content, user, commendId){
+    connection.query(`INSERT INTO commend(memo_id, commend_name, commend_date, commend_content, commend_id) 
+    VALUES ('${value}', '${user}', NOW(), '${content}', '${commendId}');`);
+}
+
+function getCommend(value, callback){
+    connection.query(`SELECT * FROM commend WHERE memo_id = '${value}' ORDER BY  commend_date DESC;`, (err, rows, fields) => {
+        if(err) throw err;
+        callback(rows);
+    });
+}
+
 module.exports = {
     getAllMemos,
     insertMemo,
@@ -69,5 +88,8 @@ module.exports = {
     checkUser,
     getInfo,
     memoUpdate,
-    memoDelete
+    memoDelete,
+    getMemosPagenation,
+    commendInsert,
+    getCommend
 }

@@ -1,14 +1,14 @@
-.containerfooter{
+/* .containerfooter{
     width: 100%;
-    min-width: max-content;
-    /*border:1px solid black;*/
-    overflow: hidden;
     margin:0 auto;
-}
+    height:250px;
+    position : relative;
+    transform : translateY(-100%);
+} */
 
 .footer{
     height:250px;
     width: 100%;
     background-color: rgb(24, 24, 24);
-    margin-bottom: auto;
+
 }
