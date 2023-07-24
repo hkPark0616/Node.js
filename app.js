@@ -366,7 +366,7 @@ app.use('/commend', (req, res) => {
   const formattedDate = dateString.replace(/[-T:.Z]/g, '');
   
   let value = req.query.value;
-  let content = req.body.textBox;
+  let content = req.query.textBox;
   let user = req.session.user.name;
   let commendId = value + "_" + formattedDate;
   if(content <= 0){
