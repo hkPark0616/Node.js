@@ -46,6 +46,20 @@ $(document).ready(function() {
     });
 });
 
+// 글자수 체크 및 제한
+$(document).ready(function() {
+    $('.re-commend-text').on('input', function() {
+        var textLength = $(this).val().length;
+        $('.re-textCount').html(textLength + " / 100자");
+
+        if (textLength > 100) {
+            $(this).val($(this).val().substring(0, 100));
+            alert('글자수는 100자까지 입력 가능합니다.');
+            $('.re-textCount').html("100 / 100자");
+        }
+    });
+});
+
 // 세션 유무에 따른 textarea 컨트롤
 $(document).ready(function(){
     $.ajax({

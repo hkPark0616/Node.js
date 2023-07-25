@@ -406,3 +406,12 @@ app.get('/getCommentCount', (req, res) => {
   });
 });
 
+app.use('/getRecommend', (req, res) => {
+  let commendId = req.query.id;
+  db.getRecommend(commendId, (rows) => {
+    res.json(rows);
+    console.log(rows);
+  });
+});
+
+

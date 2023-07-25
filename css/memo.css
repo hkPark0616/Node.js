@@ -287,9 +287,10 @@ html, body{
 }
 
 .recommend-div hr{
-    width: 90%;
+    width: 770px;
     margin-top: 10px;
-    margin-bottom: 0;
+    margin-right: 80px;
+
 }
 
 .more-recommend{
@@ -329,18 +330,16 @@ html, body{
 }
 
 .re-commend{
-    width: 92%;
-    max-height: 120px;
-    min-height: 120px;
+    width: 750px;
     margin: 20px 0px 0px 80px;
-    
+    height: 170px;
 }
 
 .re-commend-name{
     font-weight: bold;
     margin-right: 20px;
     font-size: 18px;
-    margin-left: 10px;
+    margin-left: 55px;
 }
 
 .re-commend-date{
@@ -350,12 +349,13 @@ html, body{
 }
 
 .re-commend-content{
-    margin-left: 50px;
+    margin-left: 70px;
     height: 70px;
 }
 
-.re-commend hr{
-    margin-right: 50px;
+.re-commend-div hr{
+    margin-left: 50px;
+    width: 800px;
 }
 
 .re-more-div{
@@ -369,6 +369,7 @@ html, body{
     font-weight: bold;
     margin-top: 20px;
     cursor: pointer;
+    
 }
 
 .icon{
@@ -377,24 +378,23 @@ html, body{
     border-left: 1px solid gray;
     border-bottom: 1px solid gray;
     display: inline-block;
-}
-
-#re-commend-form{
-    margin-top: 0;
-    display: inline;
+    margin-left: 15px;
+    position: absolute;
 }
 
 #re-commend-text{
-    width: 640px;
+    width: 600px;
     height: 90px;
-    margin-top: 10px;
-    float: right;
     resize: none;
+    border: 1px solid black;
+    font-size: 18px;
+    margin-left: 55px;
+    margin-top: 15px;
+    float: left;
+
 }
 #write-re-commend{
-    float: right;
-    margin-right: 56px;
-    margin-top: 10px;
+    float: left;
     height: 96px;
     width: 70px;
     font-size: 18px;
@@ -403,8 +403,25 @@ html, body{
     border: none;
     color: white;
     cursor: pointer;
+    margin-top: 15px;
 }
 
 #write-re-commend:hover{
     background-color: rgb(161, 161, 161);
+}
+
+#re-textCount{
+    margin-top: 130px;
+    margin-left: 60px;
+
+}
+
+.re-commend-div{
+    width: 92%;
+    max-height: 120px;
+    min-height: 120px;
+} 
+
+#re-commend-form{
+
 }

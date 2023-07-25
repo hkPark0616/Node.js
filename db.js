@@ -96,6 +96,16 @@ function getCommend(value, offset, limit, callback) {
     });
   }
 
+
+function getRecommend(commendId, callback) {
+    connection.query(
+      `SELECT * FROM recommend WHERE commend_id = '${commendId}' ORDER BY recommend_date DESC;`,
+      (err, rows, fields) => {
+        if (err) throw err;
+        callback(rows);
+      }
+    );
+}
 module.exports = {
     getAllMemos,
     insertMemo,
@@ -109,5 +119,6 @@ module.exports = {
     getMemosPagenation,
     commendInsert,
     getCommend,
-    getCommendCount
+    getCommendCount,
+    getRecommend
 }

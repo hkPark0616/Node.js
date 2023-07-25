@@ -92,12 +92,12 @@ $(document).ready(function () {
                         const comment = data[i];
                         
                         html += `
-                            <div class="recommend">
+                            <div class="recommend" value="${comment.commend_id}">
                             <p><span class="recommend-name">${comment.commend_name}</span><span class="bar">|</span><span class="recommend-date">${comment.commend_date}</span></p>
                             <p class="recommend-content">${comment.commend_content}</p>
-                            <a href="#" class="more-recommend">답글</a>
+                            <a class="more-recommend" value="${comment.commend_id}">답글</a>
                             </div>`;
-
+                            
                         if (i !== data.length) {
                             html += "<hr>";
                         }
@@ -144,10 +144,10 @@ function loadComments(offset, limit, value) {
                 for (let i = 0; i < data.length; i++) {
                     const comment = data[i];
                     html += `
-                        <div class="recommend">
+                        <div class="recommend" value="${comment.commend_id}">
                         <p><span class="recommend-name">${comment.commend_name}</span><span class="bar">|</span><span class="recommend-date">${comment.commend_date}</span></p>
                         <p class="recommend-content">${comment.commend_content}</p>
-                        <a href="#" class="more-recommend">답글</a>
+                        <a class="more-recommend" value="${comment.commend_id}">답글</a>
                         </div>`;
 
                     if (i !== data.length) {
