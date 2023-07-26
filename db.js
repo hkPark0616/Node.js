@@ -72,13 +72,6 @@ function commendInsert(value, content, user, commendId){
     VALUES ('${value}', '${user}', NOW(), '${content}', '${commendId}');`);
 }
 
-// function getCommend(value, callback){
-//     connection.query(`SELECT * FROM commend WHERE memo_id = '${value}' ORDER BY  commend_date DESC;`, (err, rows, fields) => {
-//         if(err) throw err;
-//         callback(rows);
-//     });
-// }
-
 function getCommend(value, offset, limit, callback) {
     connection.query(
       `SELECT * FROM commend WHERE memo_id = '${value}' ORDER BY commend_date DESC LIMIT ${offset}, ${limit};`,
@@ -106,6 +99,12 @@ function getRecommend(commendId, callback) {
       }
     );
 }
+
+function insertRecommend(commend_id, recommend_name, recommend_content, recommend_id){
+    connection.query(`INSERT INTO recommend 
+            VALUES ('${commend_id}','${recommend_name}', NOW(), '${recommend_content}', '${recommend_id}');`
+    );
+}
 module.exports = {
     getAllMemos,
     insertMemo,
@@ -120,5 +119,6 @@ module.exports = {
     commendInsert,
     getCommend,
     getCommendCount,
-    getRecommend
+    getRecommend,
+    insertRecommend
 }

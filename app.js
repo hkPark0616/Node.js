@@ -414,4 +414,31 @@ app.use('/getRecommend', (req, res) => {
   });
 });
 
+app.use('/writeRecommend', (req, res) => {
+  let recommend_content = req.query.recommendtext; // 답글 내용
+  let commend_id = req.query.id; // 답글이 달릴 댓글의 id 값
+  let recommend_id = commend_id + "_" + Math.floor(Math.random() * 9999); // 대댓글 id
+  console.log(recommend_id);
+  
+  if (req.session.user) {
+
+    let recommend_name = req.session.user.name; // 작성자 이름
+
+    if(recommend_content.length <= 0){
+      res.status(400).json({ message: '답글을 작성해주세요.'});
+      return;
+    }
+    else{
+
+      db.insertRecommend(commend_id, recommend_name, recommend_content, recommend_id);
+
+    }
+
+  } else {
+    res.send('로그인 후 사용가능합니다.');
+  }
+
+});
+
+
 

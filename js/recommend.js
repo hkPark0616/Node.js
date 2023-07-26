@@ -1,3 +1,5 @@
+
+
 // 글자수 체크 및 제한
 $(document).ready(function() {
     $('.re-commend-text').on('input', function() {
@@ -12,27 +14,7 @@ $(document).ready(function() {
     });
 });
 
-// 세션 유무에 따른 답글 textarea 컨트롤
-$(document).ready(function(){
-    $.ajax({
-        url: '/checkSession',
-        type: 'GET',
-        dataType: 'json',
-        success: function(data) {
-            if (data.sessionExists) {
-                // 세션이 있을 경우 아무 작업 필요 없음
-                $('.re-commend-text').attr("placeholder", "최대 100자");
-            } else {
-                // 세션이 없을 경우 로그인 알림 및 textarea에 메시지 출력
-                $('.re-commend-text').attr("placeholder", "로그인이 필요합니다.");
-                $('.re-commend-text').attr("disabled", "disabled");
-            }
-        },
-        error: function() {
-            alert('잠시 후에 다시 시도해주세요.');
-        }
-    });
-});
+
 
 $(document).ready(function () {
     let offset = 0;
@@ -43,9 +25,15 @@ $(document).ready(function () {
     // loadComments(offset, limit, value);
     // getCommentCount(value); // 댓글 총 개수 업데이트
 
-    $('.re-commend-form').submit(function (event) {
+    $(document).on("submit", "#re-commend-form", function (event) {
+
+        const recommendElement = event.target.closest(".recommend");
+        const commend_id = recommendElement.getAttribute("value");
+
         event.preventDefault();
+        
         var formData = $(this).serialize();
+        formData += "&id=" + commend_id;
         $.ajax({
             type: 'GET',
             url: '/checkSession',
@@ -54,16 +42,12 @@ $(document).ready(function () {
                 if (data.sessionExists) {
                     $.ajax({
                         type: 'GET',
-                        url: `/commend/?value=${value}`,
+                        url: '/writeRecommend',
                         data: formData,
                         success: function (data) {
                             alert("답글 작성이 완료되었습니다.");
-                            $('.re-commend-text').val('');
-   
-                            // offset = 0; // offset 초기화
-                            // refreshComments(offset, limit, value);
-                            // getCommentCount(value); // 댓글 총 개수 업데이트     
-                            // location.reload();
+                            $('#re-commend-text').val('');
+                            $("#re-textCount").text('0 / 100자');
                         },
                         error: function (xhr, status, error) {
                             var errorMessage = xhr.responseJSON.message;
@@ -84,23 +68,6 @@ $(document).ready(function () {
 
 });
 
-// $(document).ready(function(){
-//     let check = false;
-//     $(".re-more-div").css("display", "none");
-//     $(document).on("click", ".more-recommend", function(event) {
-//         if(check === false){
-//             let id = $(this).attr("value");
-//             loadRecommend(id);
-//             check = true;
-//         }
-//         else{
-//             $(".re-commend-div").remove();
-//             $(".re-commend").remove();
-//             check = false;
-//         }
-
-//     });
-// });
 $(document).ready(function(){
     let openReplyId = null; // 열린 답글의 ID를 저장할 변수
 
@@ -109,22 +76,31 @@ $(document).ready(function(){
     $(document).on("click", ".more-recommend", function(event) {
         let id = $(this).attr("value");
         
+        
         if (openReplyId === null) {
             // 아무 창도 열려있지 않을 때 해당 답글 창 열기
             loadRecommend(id);
-            openReplyId = id;
+            $(`[value="${id}"]`).closest('.recommend').css("height", "fit-content");
+            openReplyId = id;   
+            setReplyTextarea();        
         } else if (openReplyId === id) {
             // 이미 해당 답글 창이 열려있는 경우, 해당 답글 창 닫기
             $(".re-commend-div").remove();
             $(".re-commend").remove();
+            $(".recommend").css("height", "120px");
             openReplyId = null;
         } else {
             // 다른 답글 창이 열려있는 경우, 열린 창 닫고 새로운 답글 창 열기
             $(".re-commend-div").remove();
             $(".re-commend").remove();
+            $(".recommend").css("height", "120px");
+            $(`[value="${id}"]`).closest('.recommend').css("height", "fit-content");
             loadRecommend(id);
             openReplyId = id;
         }
+
+
+        setReplyTextarea();
     });
 });
 
@@ -151,17 +127,18 @@ function loadRecommend(id) {
                     // 각 댓글과 답글을 감싸는 컨테이너 추가
                     html += `
                     <div class="re-commend-div">
-                        <hr class="re-commend-hr">
+                    
                         <div class="re-commend value="${recomment.recommend_id}">
-                            <p><span><div class="icon"></div></span>
+                            <p><span><div class="icon"></div></span></p>
                             <span class="re-commend-name">${recomment.recommend_name}</span>
                             <span class="bar">|</span><span class="re-commend-date">${recomment.recommend_date}</span></p>
-                            <div class="re-commend-content">${recomment.recommend_content}</div>
-                            
+                            <div class="re-commend-content">${recomment.recommend_content}</div>    
                         </div>
+                        
                     <div>
                     `;
-                    $(`[value="${id}"]`).closest('.recommend').after(html);
+                    $(`[value="${id}"]`).closest('.recommend').append(html);
+                    html = '';
                     // 수정된 부분: 해당 div의 바로 아래에 댓글과 답글 컨테이너 추가
 
                 }
@@ -169,18 +146,18 @@ function loadRecommend(id) {
                                     
                 formhtml = `
                 
-                <div class="re-commend">
-                <hr class="re-commend-hr">
-                    <div class="icon"></div>
-                    <form id="re-commend-form">
-                        <textarea  id="re-commend-text" placeholder="답글 작성하기"></textarea>
+                <div class="re-commend-div">
+                    <p><span><div class="icon"></div></span></p>
+                    <form id="re-commend-form" method="POST">
+                        <textarea  id="re-commend-text" name="recommendtext" placeholder="답글 작성하기"></textarea>
                         <input type="submit" value="등록" id="write-re-commend">
                     </form>
                     <p id="re-textCount">0 / 100자</p>
                     
                 </div>
                 `
-                $(`.re-commend-div`).after(formhtml);
+                $(`[value="${id}"]`).closest('.recommend').append(formhtml);
+                // $(`.re-commend-div`).append(formhtml);
 
 
 
@@ -192,24 +169,23 @@ function loadRecommend(id) {
                 // 댓글이 limit보다 적은 경우, "더보기" 버튼 비활성화 처리
                 if (data.length < limit) {
                     $(".re-more-div").css("display", "none");
-                    $(".recommend-div").css("padding-bottom", "50px");
+    
                 }
             } else {
                 // 가져올 댓글이 더 이상 없는 경우, "더보기" 버튼 비활성화 처리
                 $(".re-more-div").css("display", "none");
                 formhtml = `
-                <div class="re-commend">
-                <hr class="re-commend-hr">
-                    <div class="icon"></div>
-                    <form id="re-commend-form">
-                        <textarea  id="re-commend-text" placeholder="답글 작성하기"></textarea>
+                <div class="re-commend-div">
+                    <p><span><div class="icon"></div></span></p>
+                    <form id="re-commend-form" method="POST">
+                        <textarea  id="re-commend-text" name="recommendtext" placeholder="답글 작성하기"></textarea>
                         <input type="submit" value="등록" id="write-re-commend">
                     </form>
                     <p id="re-textCount">0 / 100자</p>
                     
                 </div>
                 `
-          $(`[value="${id}"]`).closest('.recommend').after(formhtml);
+                $(`[value="${id}"]`).closest('.recommend').append(formhtml);
             }
             console.log(offset);
         },
@@ -219,4 +195,25 @@ function loadRecommend(id) {
     });
 }
 
-
+  // 세션 유무에 따른 답글 답글 작성 form 컨트롤 함수
+  function setReplyTextarea() {
+    $.ajax({
+      url: '/checkSession',
+      type: 'GET',
+      dataType: 'json',
+      success: function (data) {
+        if (data.sessionExists) {
+          // 세션이 있을 경우 아무 작업 필요 없음
+          $('#re-commend-text').attr("placeholder", "최대 100자");
+          $('#re-commend-text').removeAttr("disabled");
+        } else {
+          // 세션이 없을 경우 로그인 알림 및 textarea에 메시지 출력
+          $('#re-commend-text').attr("placeholder", "로그인이 필요합니다.");
+          $('#re-commend-text').attr("disabled", "disabled");
+        }
+      },
+      error: function () {
+        alert('잠시 후에 다시 시도해주세요.');
+      }
+    });
+}
