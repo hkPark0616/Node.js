@@ -27,9 +27,6 @@ $(document).ready(function () {
                             offset = 0; // offset 초기화
                             refreshComments(offset, limit, value);
                             getCommentCount(value); // 댓글 총 개수 업데이트
-                            
-                            
-                   
                             location.reload();
                         },
                         error: function (xhr, status, error) {

@@ -90,9 +90,9 @@ function getCommend(value, offset, limit, callback) {
   }
 
 
-function getRecommend(commendId, callback) {
+function getRecommend(commendId, offset, limit, callback) {
     connection.query(
-      `SELECT * FROM recommend WHERE commend_id = '${commendId}' ORDER BY recommend_date DESC;`,
+      `SELECT * FROM recommend WHERE commend_id = '${commendId}' ORDER BY recommend_date DESC LIMIT ${offset}, ${limit};`,
       (err, rows, fields) => {
         if (err) throw err;
         callback(rows);

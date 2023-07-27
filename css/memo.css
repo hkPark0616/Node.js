@@ -362,16 +362,16 @@ html, body{
 
 .re-more-div{
     float: right;
-    width: 740px;
+    width: 750px;
     text-align: center;
     border-top: 2px solid rgb(196, 196, 196);
     border-bottom: 2px solid rgb(196, 196, 196);
-    margin-right: 40px;
+    margin-right: 1px;
     line-height: 2.0em;
     font-weight: bold;
     margin-top: 20px;
     cursor: pointer;
-    
+    margin-bottom: 30px;
 }
 
 .icon{
@@ -432,4 +432,13 @@ div.re-commend-div:first-of-type {
     width: 750px;
     margin-left: 0px;
     padding-left: 50px;
+}
+
+.re-commend-form-div{
+    width: 750px;
+    max-height: 180px;
+    min-height: 120px;
+    border-top: 0.1em solid rgb(150, 150, 150);
+    margin-left: 50px;
+
 }

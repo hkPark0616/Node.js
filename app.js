@@ -408,7 +408,11 @@ app.get('/getCommentCount', (req, res) => {
 
 app.use('/getRecommend', (req, res) => {
   let commendId = req.query.id;
-  db.getRecommend(commendId, (rows) => {
+
+  let offset = parseInt(req.query.offset);
+  let limit = 5;
+
+  db.getRecommend(commendId, offset, limit, (rows) => {
     res.json(rows);
     console.log(rows);
   });
@@ -418,7 +422,8 @@ app.use('/writeRecommend', (req, res) => {
   let recommend_content = req.query.recommendtext; // 답글 내용
   let commend_id = req.query.id; // 답글이 달릴 댓글의 id 값
   let recommend_id = commend_id + "_" + Math.floor(Math.random() * 9999); // 대댓글 id
-  console.log(recommend_id);
+
+
   
   if (req.session.user) {
 
@@ -431,7 +436,7 @@ app.use('/writeRecommend', (req, res) => {
     else{
 
       db.insertRecommend(commend_id, recommend_name, recommend_content, recommend_id);
-
+      res.send('답글 작성이 완료되었습니다.');
     }
 
   } else {
