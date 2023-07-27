@@ -283,6 +283,9 @@ app.get('/loginpage', (req, res) => {
 app.use('/login', (req, res) => {
   let id = req.body.id;
   let password = req.body.password;
+  let previousUrl = req.body.prevUrl;
+  let main = '/';
+  console.log(previousUrl);
 
   db.checkUser(id, (rows) => {
     if (rows.length > 0) {
@@ -293,7 +296,11 @@ app.use('/login', (req, res) => {
           id: id,
           name: id
         };
-        res.redirect('/');
+        if (previousUrl) {
+          res.send(previousUrl);
+        } else {
+          res.redirect(main);
+        }
       } else {
         res.status(400).json({ message: '비밀번호를 확인해주세요.' });
         return;
