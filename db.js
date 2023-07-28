@@ -127,6 +127,13 @@ function Likes(value, userId){
     );
 }
 
+function cancelLikes(value, userId){
+    connection.query(`DELETE FROM likes 
+            WHERE post_id='${value}' && user_id='${userId}';`
+    );
+}
+
+
 function checkLikes(value, userId, callback) {
     connection.query(
       `SELECT COUNT(*) AS count FROM likes 
@@ -140,6 +147,11 @@ function checkLikes(value, userId, callback) {
 
 function updateLikes(value, title, name){
     connection.query(`UPDATE board SET \`like\` = \`like\` + 1 WHERE 
+                 num = '${value}' && title = '${title}' && name = '${name}';`);
+}
+
+function deleteLikes(value, title, name){
+    connection.query(`UPDATE board SET \`like\` = \`like\` - 1 WHERE 
                  num = '${value}' && title = '${title}' && name = '${name}';`);
 }
   
@@ -175,6 +187,8 @@ module.exports = {
     loadLikes,
     loadDisLikes,
     Likes,
+    cancelLikes,
     checkLikes,
-    updateLikes
+    updateLikes,
+    deleteLikes
 }

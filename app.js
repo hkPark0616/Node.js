@@ -473,7 +473,10 @@ app.use('/Likes', (req, res) => {
       db.updateLikes(value, title, name);
       res.send("좋아요!"); 
     }else{
-      res.send("이미 좋아요를 눌렀습니다.");
+      // 아마 여기서 좋아요 취소 수행해야될듯
+      db.cancelLikes(value, userId);
+      db.deleteLikes(value, title, name);
+      res.send("좋아요 취소...");
     }
   });
 

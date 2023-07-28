@@ -10,7 +10,7 @@ $(document).ready(function() {
             dataType: 'json',
             success: function(data) {
                 if (data.sessionExists) {
-                    // 세션이 있을 경우 아무 작업 필요 없음
+                    // 세션이 있을 경우
                     Likes();
                     loadLikes();
                     checkLikes();
@@ -38,8 +38,8 @@ function loadLikes() {
     const value = urlParams.get('value');
 
     $.ajax({
-        type: "POST", // 또는 "GET" 등 적절한 HTTP 메서드 사용
-        url: "/loadLikes", // 삭제를 처리하는 서버 엔드포인트 URL
+        type: "POST",
+        url: "/loadLikes",
         data: {
             title: title,
             value: value,
@@ -67,8 +67,8 @@ function Likes(){
 
 
     $.ajax({
-        type: "POST", // 또는 "GET" 등 적절한 HTTP 메서드 사용
-        url: "/Likes", // 삭제를 처리하는 서버 엔드포인트 URL
+        type: "POST",
+        url: "/Likes",
         data: {
             value: value,
             user: user,
@@ -112,7 +112,4 @@ function checkLikes() {
             alert('잠시 후에 다시 시도해주세요.');
         }
     });
-      
-      
-   
 }
