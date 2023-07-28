@@ -45,7 +45,7 @@ html, body{
     padding-bottom: 5px;
 }
 
-.num-title, .name-title, .title-title, .date-title{
+.num-title, .name-title, .title-title, .date-title, .watch-title{
     font-size: 20px;
     font-weight: bold;
     text-align: center;
@@ -78,6 +78,12 @@ html, body{
 
 .title{
     font-size: 20px;
+    border: 1px solid rgb(187, 187, 187);
+}
+
+.watch{
+    font-size: 20px;
+    text-align: center;
     border: 1px solid rgb(187, 187, 187);
 }
 

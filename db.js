@@ -27,10 +27,14 @@ function insertMemo(content, title, name){
 }
 
 function getMemo(title, value, callback){
-    connection.query(`SELECT num, title, name, date, content FROM board WHERE title = '${title}' && num = '${value}';`, (err, rows, fields) => {
+    connection.query(`SELECT num, title, name, date, content, watch FROM board WHERE title = '${title}' && num = '${value}';`, (err, rows, fields) => {
         if(err) throw err;
         callback(rows);
     });
+}
+
+function watchCount(title, value){
+    connection.query(`UPDATE board SET watch = watch + 1 WHERE title = '${title}' && num = '${value}'`);
 }
 
 function getUser(id, nickname, callback){
@@ -109,6 +113,7 @@ module.exports = {
     getAllMemos,
     insertMemo,
     getMemo,
+    watchCount,
     getUser,
     insertUser,
     checkUser,

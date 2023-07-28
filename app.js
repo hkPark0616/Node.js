@@ -247,7 +247,7 @@ app.use('/delete', function (req, res, next) {
 app.get('/memo', (req, res) => {
   let title = req.query.title;
   let value = req.query.value;
-
+  db.watchCount(title, value);
   db.getMemo(title, value, (rows) => {
 
     if(req.session.user){
