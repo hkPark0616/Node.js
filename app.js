@@ -452,5 +452,53 @@ app.use('/writeRecommend', (req, res) => {
 
 });
 
+app.use('/loadLikes', (req, res) => {
+  let value = req.body.value;  
+  db.loadLikes(value, (rows) => {
+    res.json(rows); 
+  });
+});
+
+
+app.use('/Likes', (req, res) => {
+  let value = req.body.value;  
+  let name = req.body.user;
+  let title = req.body.title;
+
+  let userId = req.session.user.name;
+
+  db.checkLikes(value, userId, (exists) => {
+    if(!exists){
+      db.Likes(value, userId);
+      db.updateLikes(value, title, name);
+      res.send("좋아요!"); 
+    }else{
+      res.send("이미 좋아요를 눌렀습니다.");
+    }
+  });
+
+});
+
+app.use('/checkLikes', (req, res) => {
+  let value = req.body.value;
+
+  if (req.session.user) {
+    let userId = req.session.user.name;
+    db.checkLikes(value, userId, (exists) => {
+      res.send(exists ? true : false);
+    });
+  } else {
+    res.send(false);
+  }
+});
+
+app.use('/loadDisLikes', (req, res) => {
+  let value = req.body.value;  
+  let title = req.body.title;
+  let userId = req.body.user;
+  db.loadDisLikes(value, userId, (rows) => {
+    res.json(rows); 
+  });
+});
 
 

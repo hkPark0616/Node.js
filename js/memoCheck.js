@@ -13,15 +13,15 @@ $(document).ready(function () {
         dataType: 'json',
         success: function (data) {
             if (data.sessionCompare) {
-                // updateButton.css("visibility", "visible");
-                // deleteButton.css("visibility", "visible");
-                box.css("display", "block");
+                updateButton.css("visibility", "visible");
+                deleteButton.css("visibility", "visible");
+                //box.css("display", "block");
 
                 
             } else {
-                // updateButton.css("visibility", "hidden");
-                // deleteButton.css("visibility", "hidden");
-                box.css("display", "none");
+                updateButton.css("visibility", "hidden");
+                deleteButton.css("visibility", "hidden");
+                //box.css("display", "none");
 
             }
         },

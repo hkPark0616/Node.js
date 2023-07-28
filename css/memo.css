@@ -138,11 +138,11 @@ html, body{
 
 .update-delete{
     margin-right: 110px;
-    position: relative;
     width: 890px;
-    height: 37px;
+    height: 80px;
     margin: 0 auto;
-    margin-top: 30px;
+    padding-top: 30px;
+    text-align: center;
 }
 
 .update-button{
@@ -175,6 +175,7 @@ html, body{
     background-color: rgb(128, 128, 128);
     border: none;
 }
+
 
 .commend{
     position: relative;
@@ -447,4 +448,62 @@ div.re-commend-div:first-of-type {
     border-top: 0.1em solid rgb(150, 150, 150);
     margin-left: 50px;
 
+}
+
+.good{
+    width: 80px;
+    border: 2px solid rgb(60, 60, 60);
+    display: inline-block;
+    margin-left: 150px;
+    border-radius: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    background-color: rgb(240, 240, 227);
+    font-weight: bold;
+    padding-right: 15px;
+
+}
+
+.bad{
+    width: 85px;
+    border: 2px solid rgb(60, 60, 60);
+    display: inline-block;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: rgb(240, 240, 227);
+    font-weight: bold;
+
+    padding-right: 10px;
+}
+
+.good:hover, .bad:hover{
+    background-color: rgb(228, 228, 220);
+    box-shadow: 1px 1px 1px rgb(94, 94, 94);
+}
+
+.good img{
+    width: 35px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+
+.bad img{
+    width: 35px;
+    margin-top: 7px;
+    margin-bottom: 3px;
+    margin-left: 20px;
+}
+
+.like_cnt{
+    position: absolute;
+    margin-top: 13px;
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+.dislike_cnt{
+    position: absolute;
+    margin-top: 12px;
+    font-size: 20px;
 }

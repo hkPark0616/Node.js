@@ -109,6 +109,52 @@ function insertRecommend(commend_id, recommend_name, recommend_content, recommen
             VALUES ('${commend_id}','${recommend_name}', NOW(), '${recommend_content}', '${recommend_id}');`
     );
 }
+
+
+function loadLikes(value,callback){
+    connection.query(`SELECT COUNT(*) as count FROM likes 
+                        WHERE post_id='${value}';`, 
+        (err, rows, fields) => {
+            if(err) throw err;
+            callback(rows);
+    });
+}
+
+
+function Likes(value, userId){
+    connection.query(`INSERT INTO likes 
+            VALUES ('${value}','${userId}');`
+    );
+}
+
+function checkLikes(value, userId, callback) {
+    connection.query(
+      `SELECT COUNT(*) AS count FROM likes 
+       WHERE post_id='${value}' AND user_id='${userId}';`,
+      (err, rows, fields) => {
+        if (err) throw err;
+        callback(rows[0].count > 0);
+      }
+    );
+}
+
+function updateLikes(value, title, name){
+    connection.query(`UPDATE board SET \`like\` = \`like\` + 1 WHERE 
+                 num = '${value}' && title = '${title}' && name = '${name}';`);
+}
+  
+function loadDisLikes(value, userId, callback){
+    connection.query(`SELECT COUNT(*) as count FROM dislikes 
+                        WHERE post_id='${value}' && user_id='${userId}';`, 
+        (err, rows, fields) => {
+            if(err) throw err;
+            callback(rows);
+    });
+}
+
+
+
+
 module.exports = {
     getAllMemos,
     insertMemo,
@@ -125,5 +171,10 @@ module.exports = {
     getCommend,
     getCommendCount,
     getRecommend,
-    insertRecommend
+    insertRecommend,
+    loadLikes,
+    loadDisLikes,
+    Likes,
+    checkLikes,
+    updateLikes
 }
