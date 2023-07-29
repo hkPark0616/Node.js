@@ -18,6 +18,7 @@ html, body{
 }
 h1{
     text-align:center;
+    margin-bottom: 50px;
 }
 
 .link{
@@ -187,4 +188,33 @@ h1{
 .now a{
     text-decoration: none;
     color: white;
+}
+
+.search{
+    width: 400px;
+    display: inline-block;
+    position: relative;
+    bottom: 5px;
+    right: 20px;
+}
+
+.keword{
+    height: 30px;
+    width: 300px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.keword-submit{
+    height: 37px;
+    width: 70px;
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+    top: 3px;
+    border: none;
+    background-color: rgb(80, 80, 80);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
 }

@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="http://localhost:3001/board.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="http://localhost:3001/writeCheck.js"></script>
+    <script type="text/javascript" src="http://localhost:3001/search.js"></script>
     <title>자유 게시판</title>
 </head>
 
@@ -19,6 +20,12 @@
     <div class="top-container">
         <h1>자유 게시판</h1>
         <div class="link">
+
+                <form class="search" action="/board/1" method="GET">
+                    <input type="text" name="search" class="keword" placeholder="검색어를 입력하세요.">
+                    <input type="submit" class="keword-submit" value="검색">
+                </form>
+
             <a href="/write" id="writeButton"><span>글 작성하기</span></a>
         </div>
     </div>
@@ -66,55 +73,49 @@
 
     <div class="container">
         <ul class="pager">
-            <%  var curSet=pasing.curSet 
-                var endPage=pasing.endPage 
-                var startPage=pasing.startPage 
-                var totalSet=pasing.totalSet 
-                var totalPage=pasing.totalPage 
-                var page_list_size=pasing.page_list_size 
-                varpage_size=pasing.page_size 
-                var curPage=pasing.curPage 
-            %>
-
-                <% if(curSet> 1){ %>
-
-                    <li value=(startPage -1) class="previous">
-                        <a href='/board/<%= ( startPage - 1) %>'>&lt;</a>
-                    </li>
-
-                    <% } %>
-
-
-                        <% for(var i=startPage; i <=endPage; i++){ if(i> totalPage){break;}
-
-                            if(i == curPage){
-                            %>
-                            <li class='now' value=<%=i %> >
-                                <a href='/board/<%= i %>'>
-                                    <%= i %>
-                                </a>
-                            </li>
-
-                            <% }else{ %>
-
-                                <li class='active' value=<%=i %> >
-                                    <a href='/board/<%= i %>'>
-                                        <%= i %>
-                                    </a>
-                                </li>
-
-
-                                <% } %>
-
-                                    <% } %>
-
-                                        <% if(curSet < totalSet){ %>
-                                            <li value=( endPage + 1) class="next">
-                                                <a href='/board/<%= ( endPage + 1) %>'>&gt;</a>
-                                            </li>
-                                            <% } %>
-
-        </ul>
+            <% var curSet = pasing.curSet %>
+            <% var endPage = pasing.endPage %>
+            <% var startPage = pasing.startPage %>
+            <% var totalSet = pasing.totalSet %>
+            <% var totalPage = pasing.totalPage %>
+            <% var page_list_size = pasing.page_list_size %>
+            <% var page_size = pasing.page_size %>
+            <% var curPage = pasing.curPage %>
+            <% var searchKeyword = pasing.searchKeyword %>
+          
+            <% if (curSet > 1) { %>
+              <li class="previous">
+                <% if (searchKeyword) { %>
+                  <a href="/board/<%= (startPage - 1) %>?search=<%= encodeURIComponent(searchKeyword) %>">&lt;</a>
+                <% } else { %>
+                  <a href="/board/<%= (startPage - 1) %>" class="previous">&lt;</a>
+                <% } %>
+              </li>
+            <% } %>
+          
+            <% for (var i = startPage; i <= endPage; i++) { %>
+              <% if (i > totalPage) { break; } %>
+              <% if (i === curPage) { %>
+                <li class="now">
+                  <a href="/board/<%= i %>?search=<%= encodeURIComponent(searchKeyword) %>"><%= i %></a>
+                </li>
+              <% } else { %>
+                <li class="active">
+                  <a href="/board/<%= i %>?search=<%= encodeURIComponent(searchKeyword) %>"><%= i %></a>
+                </li>
+              <% } %>
+            <% } %>
+          
+            <% if (curSet < totalSet) { %>
+              <li class="next">
+                <% if (searchKeyword) { %>
+                  <a href="/board/<%= (endPage + 1) %>?search=<%= encodeURIComponent(searchKeyword) %>">&gt;</a>
+                <% } else { %>
+                  <a href="/board/<%= (endPage + 1) %>">&gt;</a>
+                <% } %>
+              </li>
+            <% } %>
+          </ul>
     </div>
 
     <%- include("footer.ejs") %>

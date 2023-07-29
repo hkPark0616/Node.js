@@ -80,6 +80,9 @@ app.use('/', express.static("js"));
 
 app.get("/board/:cur", function (req, res) {
 
+  var searchKeyword = req.query.search || "";
+  console.log(searchKeyword);
+
   //페이지당 게시물 수 : 한 페이지 당 10개 게시물
   var page_size = 10;
   //페이지의 갯수 : 1 ~ 10개 페이지
@@ -88,8 +91,12 @@ app.get("/board/:cur", function (req, res) {
   var no = "";
   //전체 게시물의 숫자
   var totalPageCount = 0;
-
-  var queryString = 'SELECT count(*) AS cnt FROM board';
+  if (!searchKeyword) {
+    var queryString = 'SELECT count(*) AS cnt FROM board';
+  } else {
+    var queryString = `SELECT count(*) AS cnt FROM board WHERE title LIKE ${connection.escape('%' + searchKeyword + '%')}`;
+  }
+  
   connection.query(queryString, function (error2, data) {
     if (error2) {
       console.log(error2 + "메인 화면 mysql 조회 실패");
@@ -99,7 +106,7 @@ app.get("/board/:cur", function (req, res) {
     totalPageCount = data[0].cnt
 
     //현재 페이지 
-    var curPage = req.params.cur;
+    var curPage = req.params.cur || 1;
 
     //전체 페이지 갯수
     if (totalPageCount < 0) {
@@ -120,8 +127,7 @@ app.get("/board/:cur", function (req, res) {
       //0보다 크면 limit 함수에 들어갈 첫번째 인자 값 구하기
       no = (curPage - 1) * 10
     }
-
-    var result2 = {
+     var result2 = {
       "curPage": curPage,
       "page_list_size": page_list_size,
       "page_size": page_size,
@@ -129,11 +135,12 @@ app.get("/board/:cur", function (req, res) {
       "totalSet": totalSet,
       "curSet": curSet,
       "startPage": startPage,
-      "endPage": endPage
+      "endPage": endPage,
+      "searchKeyword": searchKeyword // 검색어도 result2에 포함
     };
 
     // 변경 후
-    db.getMemosPagenation(no, page_size, (rows) => {
+    db.getMemosPagenation(no, page_size, searchKeyword, (rows) => {
       if(req.session.user){
         res.render(__dirname + '/views/board.ejs', {data: rows,
                                                     pasing: result2,
@@ -144,30 +151,13 @@ app.get("/board/:cur", function (req, res) {
           pasing: result2});
       }
     });
-
-      // 변경 전
-      // var queryString = 'SELECT * FROM board ORDER BY date DESC LIMIT ?,?';
-      // connection.query(queryString, [no, page_size], function (error, result) {
-      //   if (error) {
-      //     console.log("페이징 에러" + error);
-      //     return
-      //   }
-      //   if(req.session.user){
-      //     res.render(__dirname + '/views/board.ejs', {data: result,
-      //                                                 pasing: result2,
-      //                                                 user: req.session.user});
-      //   }
-      //   else{
-      //     res.render(__dirname + '/views/board.ejs', {data: result,
-      //       pasing: result2});
-      //   }
-      // });
   });
 });
 
 app.get("/main", function (req, res) {
 
-  res.redirect('board/' + 1);
+  // res.redirect('board/' + 1);
+  res.redirect('board/1');
 
 });
 
