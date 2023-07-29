@@ -452,6 +452,7 @@ app.use('/writeRecommend', (req, res) => {
 
 });
 
+// 좋아요 기능
 app.use('/loadLikes', (req, res) => {
   let value = req.body.value;  
   db.loadLikes(value, (rows) => {
@@ -495,13 +496,45 @@ app.use('/checkLikes', (req, res) => {
   }
 });
 
-app.use('/loadDisLikes', (req, res) => {
+// 싫어요 기능
+app.use('/loadDislikes', (req, res) => {
   let value = req.body.value;  
-  let title = req.body.title;
-  let userId = req.body.user;
-  db.loadDisLikes(value, userId, (rows) => {
+  db.loadDislikes(value, (rows) => {
     res.json(rows); 
   });
 });
 
+app.use('/Dislikes', (req, res) => {
+  let value = req.body.value;  
+  let name = req.body.user;
+  let title = req.body.title;
+
+  let userId = req.session.user.name;
+
+  db.checkDislikes(value, userId, (exists) => {
+    if(!exists){
+      db.Dislikes(value, userId);
+      db.updateDislikes(value, title, name);
+      res.send("싫어요..."); 
+    }else{
+      // 아마 여기서 좋아요 취소 수행해야될듯
+      db.cancelDislikes(value, userId);
+      db.deleteDislikes(value, title, name);
+      res.send("싫어요 취소!");
+    }
+  });
+});
+
+app.use('/checkDislikes', (req, res) => {
+  let value = req.body.value;
+
+  if (req.session.user) {
+    let userId = req.session.user.name;
+    db.checkDislikes(value, userId, (exists) => {
+      res.send(exists ? true : false);
+    });
+  } else {
+    res.send(false);
+  }
+});
 

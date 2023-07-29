@@ -110,7 +110,7 @@ function insertRecommend(commend_id, recommend_name, recommend_content, recommen
     );
 }
 
-
+// 좋아요
 function loadLikes(value,callback){
     connection.query(`SELECT COUNT(*) as count FROM likes 
                         WHERE post_id='${value}';`, 
@@ -119,7 +119,6 @@ function loadLikes(value,callback){
             callback(rows);
     });
 }
-
 
 function Likes(value, userId){
     connection.query(`INSERT INTO likes 
@@ -132,7 +131,6 @@ function cancelLikes(value, userId){
             WHERE post_id='${value}' && user_id='${userId}';`
     );
 }
-
 
 function checkLikes(value, userId, callback) {
     connection.query(
@@ -155,17 +153,48 @@ function deleteLikes(value, title, name){
                  num = '${value}' && title = '${title}' && name = '${name}';`);
 }
   
-function loadDisLikes(value, userId, callback){
+// 싫어요
+function loadDislikes(value, callback){
     connection.query(`SELECT COUNT(*) as count FROM dislikes 
-                        WHERE post_id='${value}' && user_id='${userId}';`, 
+                        WHERE post_id='${value}';`, 
         (err, rows, fields) => {
             if(err) throw err;
             callback(rows);
     });
 }
 
+function Dislikes(value, userId){
+    connection.query(`INSERT INTO dislikes 
+            VALUES ('${value}','${userId}');`
+    );
+}
 
+function cancelDislikes(value, userId){
+    connection.query(`DELETE FROM dislikes 
+            WHERE post_id='${value}' && user_id='${userId}';`
+    );
+}
 
+function checkDislikes(value, userId, callback) {
+    connection.query(
+      `SELECT COUNT(*) AS count FROM dislikes 
+       WHERE post_id='${value}' AND user_id='${userId}';`,
+      (err, rows, fields) => {
+        if (err) throw err;
+        callback(rows[0].count > 0);
+      }
+    );
+}
+
+function updateDislikes(value, title, name){
+    connection.query(`UPDATE board SET \`dislike\` = \`dislike\` + 1 WHERE 
+                 num = '${value}' && title = '${title}' && name = '${name}';`);
+}
+
+function deleteDislikes(value, title, name){
+    connection.query(`UPDATE board SET \`dislike\` = \`dislike\` - 1 WHERE 
+                 num = '${value}' && title = '${title}' && name = '${name}';`);
+}
 
 module.exports = {
     getAllMemos,
@@ -185,10 +214,15 @@ module.exports = {
     getRecommend,
     insertRecommend,
     loadLikes,
-    loadDisLikes,
     Likes,
     cancelLikes,
     checkLikes,
     updateLikes,
-    deleteLikes
+    deleteLikes,
+    loadDislikes,
+    Dislikes,
+    cancelDislikes,
+    checkDislikes,
+    updateDislikes,
+    deleteDislikes
 }
