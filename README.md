@@ -29,11 +29,8 @@ Node.js를 이용한 간단한 CRUD 게시판.
 ## 📄 웹페이지 구성
 
  * ### 메인화면
- * <div style="width:300px; height:200px;">
-   
-   ☑️  ![Main](https://github.com/hkPark0616/Node.js/assets/113004801/b3f82df1-d85d-4990-8f09-e79d943083d7)
-   
-   </div>
+
+   ☑️  ![Main](https://github.com/hkPark0616/Node.js/assets/113004801/b3f82df1-d85d-4990-8f09-e79d943083d7){: width="100" height="100"}
 
 
  * ### 회원가입
