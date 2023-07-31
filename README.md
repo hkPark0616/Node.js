@@ -21,7 +21,7 @@ Node.js - Express를 이용한 간단한 CRUD 게시판입니다. <br>
 
 ####  Framework
 
-* <img src="https://img.shields.io/badge/Nodejs-339933?style=flat&logo=Node.js&logoColor=white"> <img src="https://img.shields.io/badge/Express-000000?style=flat&logo=Express&logoColor=white">
+* <img src="https://img.shields.io/badge/Nodejs-339933?style=flat&logo=Node.js&logoColor=white"> <img src="https://img.shields.io/badge/Express-5D5D5D?style=flat&logo=Express&logoColor=white">
 
 ####  Database
 
