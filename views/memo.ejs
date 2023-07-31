@@ -51,8 +51,8 @@
       </table>
 
       <div class="update-delete">
-        <a class="good"><img src="../like.png"><span class="like_cnt"></span></a>
-        <a class="bad"><span class="dislike_cnt"></span><img src="../dislike.png"></a>
+        <a class="good"><img class="good_img" src="../like.png"><span class="like_cnt"></span></a>
+        <a class="bad"><span class="dislike_cnt"></span><img class="bad_img" src="../dislike.png"></a>
         <a href="/modify/?title=<%= rows[0].title %>&value=<%= rows[0].num %>&name=<%= rows[0].name %>" class="update-button" id="update-button">수정</a>
         <a class="delete-button" id="delete-button">삭제</a>
       </div>

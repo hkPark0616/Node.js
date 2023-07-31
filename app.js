@@ -81,7 +81,14 @@ app.use('/', express.static("js"));
 app.get("/board/:cur", function (req, res) {
 
   var searchKeyword = req.query.search || "";
-  console.log(searchKeyword);
+  // var sortOption = req.query.sortOption || "sortRecent";
+  // if(sortOption === "sortRecent"){
+  //   var sortQuery = "date";
+  // }else if(sortOption === "sortViews"){
+  //   var sortQuery = "watch";
+  // }else if(sortOption === "sortLikes"){
+  //   var sortQuery = "like";
+  // }
 
   //페이지당 게시물 수 : 한 페이지 당 10개 게시물
   var page_size = 10;
@@ -136,10 +143,10 @@ app.get("/board/:cur", function (req, res) {
       "curSet": curSet,
       "startPage": startPage,
       "endPage": endPage,
-      "searchKeyword": searchKeyword // 검색어도 result2에 포함
+      "searchKeyword": searchKeyword, // 검색어도 result2에 포함
     };
 
-    // 변경 후
+    // 변경 전
     db.getMemosPagenation(no, page_size, searchKeyword, (rows) => {
       if(req.session.user){
         res.render(__dirname + '/views/board.ejs', {data: rows,

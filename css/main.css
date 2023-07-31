@@ -6,12 +6,15 @@ html, body{
 }
 
 .container{
-    width: 1500px;
+    width: 1100px;
     min-width: max-content;
     /*border:1px solid black;*/
     overflow: hidden;
     margin:0 auto;
-    margin-bottom:50px;
+    margin-bottom:150px;
+    padding: 50px 100px 40px 100px;
+    box-shadow: 0px 0px  7px rgb(173, 173, 173);
+
 }
 
 .form > p{
@@ -29,44 +32,24 @@ html, body{
     
 }
 
-.test{
-    border:1px solid black;
-    max-width:80%;
-    min-width: 500px;
-    /* margin:20px; */
-    margin: 0 auto;
-    height:400px;
-    overflow: hidden;
-    position: relative;
-}
-.image{
-    width:1150px;
-    height:390px;
-    margin: 5px auto;
-}
-.image img{
-
-    width:100%;
-    height:100%;
-}
 .left{
-    min-width:280px;
-    margin:20px;
+    width:25%;
+    margin:20px 39px 20px 0;;
     height:400px;
     border:1px solid black;
     margin-top: 40px;
     float: left;
+    box-shadow: 2px 2px 2px rgb(156, 156, 156);
 }
 
 .right{
-    max-width:100%;
-    min-width: 500px;
-    margin:20px;
+
+    width: 71%;
+    margin:40px 0px 20px 20px;
     height:400px;
     border:1px solid black;
-    margin-top: 40px;
     overflow: hidden;
-
+    box-shadow: 2px 2px 2px rgb(156, 156, 156);
 }
 
 .board{
@@ -115,7 +98,7 @@ html, body{
     margin-bottom: 30px;
     text-decoration: none;
     color: black;
-
+    margin-left: 20px;
 }
 
 .recent a{
@@ -131,4 +114,132 @@ html, body{
     position: relative;
     margin-left: 40%;
     margin-top: 11%;
+}
+
+.slide {
+    /* layout */
+    display: flex;
+    flex-wrap: nowrap;
+    /* 컨테이너의 내용물이 컨테이너 크기(width, height)를 넘어설 때 보이지 않도록 하기 위해 hidden을 준다. */
+    overflow: hidden;
+  
+    /* position */
+    /* slide_button의 position absolute가 컨테이너 안쪽에서 top, left, right offset이 적용될 수 있도록 relative를 준다. (기본값이 static인데, static인 경우 그 상위 컨테이너로 나가면서 현재 코드에선 html을 기준으로 offset을 적용시키기 때문) */
+    position: relative;
+  
+    /* size */
+    width: 100%;
+  
+    /* slide drag를 위해 DOM요소가 드래그로 선택되는것을 방지 */
+    user-select: none;
+    box-shadow: 2px 2px 2px rgb(156, 156, 156);
+    border: 1px solid black;
+  }
+  .slide_item {
+    /* layout */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    /* position - 버튼 클릭시 left offset값을 적용시키기 위해 */
+    position: relative;
+    left: 0px;
+  
+    /* size */
+    width: 100%;
+    height: 500px;
+    /* flex item의 flex-shrink는 기본값이 1이므로 컨테이너 크기에 맞게 줄어드는데, 슬라이드를 구현할 것이므로 줄어들지 않도록 0을 준다. */
+    flex-shrink: 0;
+  
+    /* transition */
+    transition: left 0.15s;
+  }
+  .slide_button {
+    /* layout */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    /* position */
+    position: absolute;
+    /* 버튼이 중앙에 위치하게 하기위해 계산 */
+    top: calc(50% - 16px);
+  
+    /* size */
+    width: 32px;
+    height: 32px;
+  
+    /* style */
+    border-radius: 100%;
+    background-color: #cccc;
+    cursor: pointer;
+  }
+  
+  .slide_prev_button {
+    left: 10px;
+  }
+  .slide_next_button {
+    right: 10px;
+  }
+  
+  /* 각 슬라이드가 변경되는 것을 시각적으로 확인하기 쉽도록 각 슬라이드별 색상 적용 */
+  .slide_item.item1 {
+    background-image: url("../background_img3.jpg");
+    background-size: 100% 100%;
+  }
+  .slide_item.item2 {
+    background-image: url("../background.jpg");
+    background-size: 100% 100%;
+  }
+  .slide_item.item3 {
+    background-image: url("../puppies.jpg");
+    background-size: 100% 100%;
+  }
+  .slide_item.item4 {
+    background-image: url("../darkroom.jpg");
+    background-size: 100% 100%;
+  }
+  .slide_item.item5 {
+    background-image: url("../background2.jpeg");
+    background-size: 100% 100%;
+  }
+
+ul, li {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.slide_pagination {
+  /* layout */
+  display: flex;
+  gap: 5px;
+
+  /* position */
+  position: absolute;
+  bottom: 0;
+  /* left:50%, translateX(-50%)를 하면 가로 가운데로 위치시킬 수 있다. */
+  left: 50%;
+  transform: translateX(-50%);
+}
+.slide_pagination > li {
+  /* 현재 슬라이드가 아닌 것은 투명도 부여 */
+  color: #7fb5ff88;
+  cursor: pointer;
+  font-size: 25px;
+}
+.slide_pagination > li.active {
+  /* 현재 슬라이드 색상은 투명도 없이 */
+  color: #7fb5ff;
+}
+
+.slide_item_duplicate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  left: 0px;
+  width: 100%;
+  height: 300px;
+  flex-shrink: 0;
+  transition: left 0.15s;
 }

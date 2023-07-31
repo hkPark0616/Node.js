@@ -102,9 +102,9 @@ function checkLikes() {
         success: function(data) {
             console.log(data);
             if (data) {
-                $(".good").css("background-color", "rgb(255, 192, 203)");
+                $(".good_img").attr("src", "../likegreen.png");
               } else {
-                $(".good").css("background-color", "rgb(240, 240, 227)");
+                $(".good_img").attr("src", "../like.png");
               }
 
         },

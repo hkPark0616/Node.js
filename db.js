@@ -15,15 +15,15 @@ function getAllMemos(callback){
     });
 }
 
-function getSearchMemosPagenation(no, page_size, searchKeyword, callback){
+// function getSearchMemosPagenation(no, page_size, searchKeyword, callback){
 
-    // 검색 키워드가 존재하는 경우, 제목에 검색 키워드가 포함된 레코드를 검색합니다.
-    connection.query(`SELECT * FROM board WHERE title LIKE ${connection.escape('%' + searchKeyword + '%')} ORDER BY date DESC LIMIT ${no}, ${page_size}`, (err, rows, fields) => {
-        if (err) throw err;
-        callback(rows);
-    });
+//     // 검색 키워드가 존재하는 경우, 제목에 검색 키워드가 포함된 레코드를 검색합니다.
+//     connection.query(`SELECT * FROM board WHERE title LIKE ${connection.escape('%' + searchKeyword + '%')} ORDER BY date DESC LIMIT ${no}, ${page_size}`, (err, rows, fields) => {
+//         if (err) throw err;
+//         callback(rows);
+//     });
       
-}
+// }
 
 function getMemosPagenation(no, page_size, searchKeyword, callback) {
   if (!searchKeyword) {
@@ -226,7 +226,6 @@ module.exports = {
     memoUpdate,
     memoDelete,
     getMemosPagenation,
-    getSearchMemosPagenation,
     commendInsert,
     getCommend,
     getCommendCount,

@@ -102,9 +102,9 @@ function checkDislikes() {
       success: function(data) {
           console.log(data);
           if (data) {
-              $(".bad").css("background-color", "blue");
+                $(".bad_img").attr("src", "../dislikeblue.png");
             } else {
-              $(".bad").css("background-color", "rgb(240, 240, 227)");
+                $(".bad_img").attr("src", "../dislike.png");
             }
 
       },
