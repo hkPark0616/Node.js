@@ -43,10 +43,10 @@ Node.js - Express를 이용한 간단한 CRUD 게시판입니다. <br>
      <img src="https://github.com/hkPark0616/Node.js/assets/113004801/2f816c97-f296-4bdf-99d6-22444d779f1e.gif" width="800" height="400">
  
  * ### 로그인
-   #### 로그인 성공
+   #### 🔸로그인 성공
      <img src="https://github.com/hkPark0616/Node.js/assets/113004801/32f081e3-915c-4219-8d1a-24aef9940feb.gif" width="800" height="400">
      
-   #### 로그인 실패
+   #### 🔸로그인 실패
      <img src="https://github.com/hkPark0616/Node.js/assets/113004801/4345a259-27b7-4405-b915-4dda782dbb3f.gif" width="800" height="400">
      
  * ### 게시글 목록 및 게시글 검색
@@ -58,20 +58,20 @@ Node.js - Express를 이용한 간단한 CRUD 게시판입니다. <br>
     <img src="https://github.com/hkPark0616/Node.js/assets/113004801/60824893-7b87-4f3d-aeb8-abde9e719003.gif" width="800" height="400">
 
  * ### 게시글 수정 및 삭제
-   #### 게시글 수정
+   #### 🔸게시글 수정
 
     <img src="https://github.com/hkPark0616/Node.js/assets/113004801/72879e3c-6c88-4d3b-9e17-9264b67e4939.gif" width="800" height="400">
 
-   #### 게시글 삭제
+   #### 🔸게시글 삭제
 
     <img src="https://github.com/hkPark0616/Node.js/assets/113004801/3c189c2a-6483-4dc8-8232-708c69f323a5.gif" width="800" height="400">
 
  * ### 댓글 작성
-   #### 댓글
+   #### 🔸댓글
 
     <img src="https://github.com/hkPark0616/Node.js/assets/113004801/e3df2120-a65a-4e97-9801-9a360eb08db3.gif" width="800" height="400">
 
-   #### 대댓글
+   #### 🔸대댓글
 
     <img src="https://github.com/hkPark0616/Node.js/assets/113004801/070aacba-0989-4925-9e0e-39b22ec41ef7.gif" width="800" height="400">
 
