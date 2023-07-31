@@ -36,7 +36,7 @@ Node.js를 이용한 간단한 CRUD 게시판.
  * ### 회원가입
    <table>
      <tr>
-       <td><img src="https://github.com/hkPark0616/Node.js/assets/113004801/8e92a81b-58fe-4afa-a31f-87599bda8f19.gif" width="600" height="400"></td>
+       <td><img src="https://github.com/hkPark0616/Node.js/assets/113004801/8e92a81b-58fe-4afa-a31f-87599bda8f19.gif" width="500" height="150"></td>
      </tr>
    </table>
   
