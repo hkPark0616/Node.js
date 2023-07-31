@@ -1,5 +1,5 @@
 
-![header](https://capsule-render.vercel.app/api?type=wave&color=auto&height=300&section=header&text=Node.js를 이용한 CRUD 게시판 만들기%20render&fontSize=90)
+![header](https://capsule-render.vercel.app/api?type=wave&color=auto&height=300&section=header&text=Node.js를 이용한 CRUD 게시판%20render&fontSize=90)
 
 
 # Node.js를 이용한 CRUD 게시판 만들기
