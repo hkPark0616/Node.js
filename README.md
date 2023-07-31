@@ -36,10 +36,10 @@ Node.js - Express를 이용한 간단한 CRUD 게시판입니다. <br>
    <img src="https://github.com/hkPark0616/Node.js/assets/113004801/b3f82df1-d85d-4990-8f09-e79d943083d7.gif"  width="800" height="400"/>
 
  * ### 회원가입
-   #### 회원가입 성공
+   #### 🔸회원가입 성공
      <img src="https://github.com/hkPark0616/Node.js/assets/113004801/8e92a81b-58fe-4afa-a31f-87599bda8f19.gif" width="800" height="400">
      
-   #### 회원가입 실패
+   #### 🔸회원가입 실패
      <img src="https://github.com/hkPark0616/Node.js/assets/113004801/2f816c97-f296-4bdf-99d6-22444d779f1e.gif" width="800" height="400">
  
  * ### 로그인
