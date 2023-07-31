@@ -55,6 +55,8 @@ Node.js - Express를 이용한 간단한 CRUD 게시판입니다. <br>
 
  * ### 게시글 작성
 
+    <img src="https://github.com/hkPark0616/Node.js/assets/113004801/60824893-7b87-4f3d-aeb8-abde9e719003">
+
  * ### 게시글 수정 및 삭제
 
  * ### 댓글 작성
