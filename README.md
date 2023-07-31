@@ -55,8 +55,22 @@ Node.js - Express를 이용한 간단한 CRUD 게시판입니다. <br>
 
  * ### 게시글 작성
 
-    <img src="https://github.com/hkPark0616/Node.js/assets/113004801/60824893-7b87-4f3d-aeb8-abde9e719003" width="800" height="400">
+    <img src="https://github.com/hkPark0616/Node.js/assets/113004801/60824893-7b87-4f3d-aeb8-abde9e719003.gif" width="800" height="400">
 
  * ### 게시글 수정 및 삭제
+   #### 게시글 수정
+
+    <img src="https://github.com/hkPark0616/Node.js/assets/113004801/72879e3c-6c88-4d3b-9e17-9264b67e4939.gif" width="800" height="400">
+
+   #### 게시글 삭제
+
+    <img src="https://github.com/hkPark0616/Node.js/assets/113004801/3c189c2a-6483-4dc8-8232-708c69f323a5.gif" width="800" height="400">
 
  * ### 댓글 작성
+   #### 댓글
+
+    <img src="https://github.com/hkPark0616/Node.js/assets/113004801/e3df2120-a65a-4e97-9801-9a360eb08db3.gif" width="800" height="400">
+
+   #### 대댓글
+
+    <img src="https://github.com/hkPark0616/Node.js/assets/113004801/3c189c2a-6483-4dc8-8232-708c69f323a5.gif" width="800" height="400">
