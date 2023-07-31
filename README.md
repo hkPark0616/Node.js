@@ -16,7 +16,7 @@ Node.js를 이용한 간단한 CRUD 게시판.
 
 ####  Framework
 
-* <img src="https://img.shields.io/badge/Nodejs-339933?style=flat&logo=Node.js&logoColor=white">, <img src="https://img.shields.io/badge/Express-000000?style=flat&logo=Express&logoColor=white">
+* <img src="https://img.shields.io/badge/Nodejs-339933?style=flat&logo=Node.js&logoColor=white"> - <img src="https://img.shields.io/badge/Express-000000?style=flat&logo=Express&logoColor=white">
 
 ####  Database
 
