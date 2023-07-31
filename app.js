@@ -58,13 +58,17 @@ app.use(bodyParser.json());
 
 app.get('/', function (req, res, next) {
   db.getAllMemos((rows) => {
+    db.getRankMemos((data) =>{
+      if(req.session.user){
+        res.render(__dirname + '/views/main.ejs', { rows: rows, 
+                                                    data: data,
+                                                    user: req.session.user });
+      }
+      else{
+        res.render(__dirname + '/views/main.ejs', { rows: rows, data: data, });
+      }
+    })
 
-    if(req.session.user){
-      res.render(__dirname + '/views/main.ejs', { rows: rows, user: req.session.user });
-    }
-    else{
-      res.render(__dirname + '/views/main.ejs', { rows: rows });
-    }
     
   });
 });

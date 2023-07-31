@@ -15,6 +15,13 @@ function getAllMemos(callback){
     });
 }
 
+function getRankMemos(callback){
+    connection.query('SELECT * FROM board ORDER BY watch DESC, \`like\` DESC LIMIT 0, 5;', (err, data, fields) => {
+        if(err) throw err;
+        callback(data);
+    });
+}
+
 // function getSearchMemosPagenation(no, page_size, searchKeyword, callback){
 
 //     // 검색 키워드가 존재하는 경우, 제목에 검색 키워드가 포함된 레코드를 검색합니다.
@@ -242,5 +249,6 @@ module.exports = {
     cancelDislikes,
     checkDislikes,
     updateDislikes,
-    deleteDislikes
+    deleteDislikes,
+    getRankMemos
 }

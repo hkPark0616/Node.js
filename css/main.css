@@ -59,6 +59,7 @@ html, body{
     margin-top:10px;
     float: left;
 }
+
 .plus{
     float:right;
     font-size:30px;
@@ -68,6 +69,7 @@ html, body{
     color:black;
 
 }
+
 .left p{
     
     font-size:20px;
@@ -75,37 +77,113 @@ html, body{
     margin:10px 0px 10px 40px;
 
 }
+
 .left hr{
-    margin:0px 30px 40px 30px;
+    margin:0px 30px 20px 30px;
 }
+
 .rank{
     min-width: 280px;
 }
-.right hr{
-    margin:50px 30px 20px 30px;
-}
 
-.recent{
+.rank-div{
+    width: 215px;
+    height: 300px;
     border: 1px solid lightgray;
-    margin-left: 30px;
-    margin-right: 30px;
-    min-width: 80%;
-    height: 75%;
-}
-.recent ul li{
-    list-style: none;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    text-decoration: none;
-    color: black;
-    margin-left: 20px;
+    margin: 0 auto;
+    padding-top: 10px;
 }
 
-.recent a{
-    color: black;
-    text-decoration: none;
+.rank-ul{
+    margin-left: 25px;
+    margin-top: 20px;
     font-weight: 600;
     font-size: 18px;
+}
+
+.rank-ul li a{
+    color: black;
+    text-decoration: none;
+}
+.rank-ul li{
+    margin-bottom: 30px;
+}
+
+.right hr{
+    margin:50px 30px 10px 30px;
+}
+
+.recent-title{
+    font-weight: bold;
+    border-bottom: 1px solid lightgray;
+    padding-left: 200px;
+    padding-right: 200px;
+    font-size: 18px;
+    margin-left: 50px;
+    margin-right: 20px;
+    padding-bottom: 10px;
+}
+
+.recent-views{
+    font-weight: bold;
+    border-bottom: 1px solid lightgray;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 18px;
+    margin-right: 20px;
+    padding-bottom: 10px;
+}
+
+.recent-likes{
+    font-weight: bold;
+    border-bottom: 1px solid lightgray;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 18px;
+    margin-right: 20px;
+    padding-bottom: 10px;
+}
+
+.recent-table{
+    margin-left: 50px;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.recent-table td{
+    line-height: 3.2em;
+    padding: 0;
+    padding-right: 50px;
+}
+
+.recent-table tr:hover{
+    background-color: rgb(224, 224, 224);
+}
+
+.title{
+    width: 445px;
+}
+
+.views{
+    width: 80px;
+    font-weight: bold;
+}
+
+.likes{
+
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.title a{
+    font-weight: bold;
+    font-size: 18px;
+    text-decoration: none;
+    color: black;
+    width:100%;
+    height:100%;
+    padding-left: 10px;
+    display:block;
 }
 
 .none{
