@@ -16,12 +16,12 @@ Node.js - Express를 이용한 간단한 CRUD 게시판입니다. <br>
 
 ####  Programming Language
 
-* <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=HTML5&logoColor=white">, <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=CSS3&logoColor=white">, <img src="https://img.shields.io/badge/jQuery-0769AD?style=flat&logo=jQuery&logoColor=white">, 
+* <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=HTML5&logoColor=white"> <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=CSS3&logoColor=white"> <img src="https://img.shields.io/badge/jQuery-0769AD?style=flat&logo=jQuery&logoColor=white"> 
   <img src="https://img.shields.io/badge/Javascript-F7DF1E?style=flat&logo=Javascript&logoColor=white"><br>
 
 ####  Framework
 
-* <img src="https://img.shields.io/badge/Nodejs-339933?style=flat&logo=Node.js&logoColor=white"> **-** <img src="https://img.shields.io/badge/Express-000000?style=flat&logo=Express&logoColor=white">
+* <img src="https://img.shields.io/badge/Nodejs-339933?style=flat&logo=Node.js&logoColor=white"> <img src="https://img.shields.io/badge/Express-000000?style=flat&logo=Express&logoColor=white">
 
 ####  Database
 
