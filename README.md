@@ -77,4 +77,4 @@ Node.js - Express를 이용한 간단한 CRUD 게시판입니다. <br>
 
   * ### 게시글 좋아요 및 싫어
 
-    <img src="https://github.com/hkPark0616/Node.js/assets/113004801/991a8aa7-fc02-44e6-b02a-bc632e211d9f.gif" width="800" height="400">
+    <img src="https://github.com/hkPark0616/Node.js/assets/113004801/87a4ae14-1e25-46dc-97b0-8478da60e181.gif" width="800" height="400">
