@@ -35,7 +35,6 @@ Node.js - Express를 이용한 간단한 CRUD 게시판입니다. <br>
 
    <img src="https://github.com/hkPark0616/Node.js/assets/113004801/b3f82df1-d85d-4990-8f09-e79d943083d7.gif"  width="800" height="400"/>
 
-
  * ### 회원가입
    #### 회원가입 성공
      <img src="https://github.com/hkPark0616/Node.js/assets/113004801/8e92a81b-58fe-4afa-a31f-87599bda8f19.gif" width="800" height="400">
@@ -43,14 +42,16 @@ Node.js - Express를 이용한 간단한 CRUD 게시판입니다. <br>
    #### 회원가입 실패
      <img src="https://github.com/hkPark0616/Node.js/assets/113004801/2f816c97-f296-4bdf-99d6-22444d779f1e.gif" width="800" height="400">
  
-  
  * ### 로그인
    #### 로그인 성공
      <img src="https://github.com/hkPark0616/Node.js/assets/113004801/32f081e3-915c-4219-8d1a-24aef9940feb.gif" width="800" height="400">
      
    #### 로그인 실패
      <img src="https://github.com/hkPark0616/Node.js/assets/113004801/4345a259-27b7-4405-b915-4dda782dbb3f.gif" width="800" height="400">
- * ### 게시글 목록
+     
+ * ### 게시글 목록 및 게시글 검색
+
+    <img src="https://github.com/hkPark0616/Node.js/assets/113004801/bb76bdb0-2427-430e-b041-6111040db32e.gif"  width="800" height="400"/>
 
  * ### 게시글 작성
 
