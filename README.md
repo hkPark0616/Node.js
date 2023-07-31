@@ -38,7 +38,7 @@ Node.js를 이용한 간단한 CRUD 게시판.
      <img src="https://github.com/hkPark0616/Node.js/assets/113004801/8e92a81b-58fe-4afa-a31f-87599bda8f19.gif" width="800" height="400">
      
    #### 회원가입 실패
-     <img src="(https://github.com/hkPark0616/Node.js/assets/113004801/465a9549-b56d-4c96-b699-f221db468d7e.gif" width="800" height="400">
+     <img src="https://github.com/hkPark0616/Node.js/assets/113004801/465a9549-b56d-4c96-b699-f221db468d7e.gif" width="800" height="400">
  
   
  * ### 로그인
