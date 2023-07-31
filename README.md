@@ -42,7 +42,10 @@ Node.js를 이용한 간단한 CRUD 게시판.
  
   
  * ### 로그인
-
+   #### 로그인 성공
+     <img src="https://github.com/hkPark0616/Node.js/assets/113004801/32f081e3-915c-4219-8d1a-24aef9940feb.gif" width="800" height="400">
+   #### 로그인 실패
+     <img src="https://github.com/hkPark0616/Node.js/assets/113004801/4345a259-27b7-4405-b915-4dda782dbb3f.gif" width="800" height="400">
  * ### 게시글 목록
 
  * ### 게시글 작성
